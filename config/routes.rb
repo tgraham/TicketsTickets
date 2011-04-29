@@ -1,4 +1,12 @@
 TicketsTickets::Application.routes.draw do
+  root :to => "static#index"
+
+  devise_for :users do
+    get '/login' => 'devise/sessions#new'
+    get '/logout' => 'devise/sessions#destroy'
+    get '/register' => 'devise/registrations#new'
+  end 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
