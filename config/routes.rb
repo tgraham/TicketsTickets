@@ -1,6 +1,8 @@
 TicketsTickets::Application.routes.draw do
   root :to => "static#index"
-
+  
+  resources :users, :only => :show
+  
   devise_for :users do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
