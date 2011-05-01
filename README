@@ -8,8 +8,20 @@ gems:
 =====
 rails
 mysql2 0.2.7  ## 0.3.x is only compatible with Rails 3.1
+jquery-rails
+devise
+kaminari
+cancan
+carrierwave
 
+::test
+rspec-rails 2.6.0.rc2 ## 2.6.0.rc2 solves problem with capybara
+cucumber-rails
+database_cleaner
+capybara
 
+::dev
+nifty-generators
 
 plugins:
 ========
