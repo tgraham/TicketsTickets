@@ -5,6 +5,7 @@ gem 'rails'
 gem 'mysql2', '=0.2.7'
 gem 'mongoid'
 gem 'bson_ext'
+gem 'mongoid_slug', :require => 'mongoid/slug'
 
 gem 'jquery-rails'
 gem 'devise'

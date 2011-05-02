@@ -1,8 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  
-  before_save :generate_slug
+  include Mongoid::Slug
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -14,17 +13,13 @@ class User
   field :last_name, type: String
   field :login, type: String
   field :slug, type: String
+
+  slug :first_name, :last_name, :as => :name
   
   # Setup accessible (or protected) attributes for your model
-  #attr_accessible :first_name, :last_name, :login, :slug, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :first_name, :last_name, :login, :slug, :email, :password, :password_confirmation, :remember_me
 
   def name
     self.first_name + ' ' + self.last_name
-  end  
-  
-  private 
-    def generate_slug
-      self.slug = login.parameterize
-    end
-
+  end
 end
