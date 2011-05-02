@@ -8,14 +8,9 @@
     = yield(:head)
   %body
     #container
-      #user_nav
-        - if user_signed_in?
-          Signed in as #{current_user.email}. Not you?
-          = link_to "Sign out", destroy_user_session_path
-        - else
-          = link_to "Sign up", new_user_registration_path
-          or
-          = link_to "Sign in", new_user_session_path
+      %ul.user_nav
+        = render 'devise/menu/registration_items'
+        = render 'devise/menu/login_items'
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
       = content_tag :h1, yield(:title) if show_title?

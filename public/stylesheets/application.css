@@ -73,3 +73,13 @@ a {
 .error_messages ul {
   margin: 0;
 }
+
+ul.user_nav {
+  list-style: none;	
+  margin: 0 0 2em;
+  padding: 0;
+}
+ul.user_nav li {
+  display: inline;  
+}
+

@@ -1,2 +1,5 @@
-%h1 Static#index
-%p Find me in app/views/static/index.html.erb
+%h3 Home
+- @users.each do |user|
+  %p
+    User: #{link_to user.name, user}
+

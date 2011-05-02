@@ -4,3 +4,6 @@ tmp/**/*
 db/schema.rb
 config/database.yml
 tmp/*
+db/*.sqlite3
+.DS_Store
+

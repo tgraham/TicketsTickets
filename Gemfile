@@ -20,6 +20,7 @@ end
 
 group :test do
   gem 'mongoid-rspec'
+  gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 2.6.0.rc2'
   gem 'cucumber-rails'
   gem 'database_cleaner'
