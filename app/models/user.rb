@@ -9,17 +9,13 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
   
   
-  field :first_name, type: String
-  field :last_name, type: String
+  field :full_name, type: String
   field :login, type: String
-  field :slug, type: String
 
-  slug :first_name, :last_name, :as => :name
+  slug :full_name, :as => :name
   
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :first_name, :last_name, :login, :slug, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :full_name, :login, :email, :password, :password_confirmation, :remember_me
 
-  def name
-    self.first_name + ' ' + self.last_name
-  end
+ 
 end

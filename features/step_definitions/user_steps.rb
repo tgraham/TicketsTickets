@@ -2,9 +2,8 @@ Given /^no user exists with an email of "(.*)"$/ do |email|
   assert_nil User.find(:first, :conditions => { :email => email })
 end
 
-Given /^I am a user named "([^"]*) ([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |first_name, last_name, email, password|
-  User.new(:first_name => first_name,
-           :last_name => last_name,
+Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |full_name, email, password|
+  User.new(:full_name => full_name,
             :email => email,
             :password => password,
             :password_confirmation => password).save!

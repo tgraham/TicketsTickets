@@ -6,8 +6,7 @@ I want to be able to sign up
 Scenario: Signing up
   Given I am on the homepage
   When I follow "Sign up"
-  And I fill in "First Name" with "John"
-  And I fill in "Last Name" with "Doe"
+  And I fill in "Full Name" with "John Doe"
   And I fill in "Login" with "johndoe"
   And I fill in "Email" with "john@doe.com"
   And I fill in "Password" with "password"

@@ -8,8 +8,7 @@ Feature: Edit User
       When I sign in as "user@test.com/please"
       Then I should be signed in
       When I follow "Edit account"
-      And I fill in "First Name" with "Foo"
-      And I fill in "Last Name" with "Bar"
+      And I fill in "Full Name" with "Foo Bar"
       And I fill in "Current password" with "please"
       And I press "Update"
       And I go to the homepage
