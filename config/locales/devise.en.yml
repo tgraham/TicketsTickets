@@ -48,3 +48,9 @@ en:
         subject: 'Reset password instructions'
       unlock_instructions:
         subject: 'Unlock Instructions'
+
+  activerecord:
+    attributes:
+      user:  
+        login: "Username or email"
+

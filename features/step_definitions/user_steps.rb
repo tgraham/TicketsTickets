@@ -2,9 +2,9 @@ Given /^no user exists with an email of "(.*)"$/ do |email|
   assert_nil User.find(:first, :conditions => { :email => email })
 end
 
-Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |full_name, email, password|
+Given /^I am a user named "([^"]*)" with an login "([^"]*)" and password "([^"]*)"$/ do |full_name, login, password|
   User.new(:full_name => full_name,
-            :email => email,
+            :login => login,
             :password => password,
             :password_confirmation => password).save!
 end
@@ -40,10 +40,10 @@ Given /^I am logout$/ do
   visit('/users/sign_out')
 end
 
-When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
+When /^I sign in as "(.*)\/(.*)"$/ do |login, password|
   Given %{I am not logged in}
   When %{I go to the sign in page}
-  And %{I fill in "Email" with "#{email}"}
+  And %{I fill in "Login" with "#{login}"}
   And %{I fill in "Password" with "#{password}"}
   And %{I press "Sign in"}
 end
