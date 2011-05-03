@@ -1,17 +1,114 @@
 !!!
-%html
+%html{:lang => "en"}
   %head
-    %title= content_for?(:title) ? yield(:title) : "Untitled"
-    = stylesheet_link_tag "application"
-    = javascript_include_tag :defaults
-    = csrf_meta_tag
-    = yield(:head)
+    %meta{:charset => "utf-8"}/
+    %title Administry - Admin Template by Zoran Juric
+    %meta{:content => "Administry - Admin Template by Zoran Juric", :name => "description"}/
+    %meta{:content => "Admin,Template", :name => "keywords"}/
+    / Favicons
+    %link{:href => "/images/favicons/favicon.png", :rel => "shortcut icon", :type => "image/png"}/
+    %link{:href => "/images/favicons/favicon.png", :rel => "icon", :type => "image/png"}/
+    %link{:href => "/images/favicons/apple.png", :rel => "apple-touch-icon"}/
+    / Stylesheets
+    = stylesheet_link_tag 'application', 'custom'
+    / swfobject - needed only if you require <video> tag support for older browsers
+    %script{:src => "/javascripts/swfobject.js", :type => "text/javascript"}
+    / jQuery with plugins
+    %script{:src => "/javascripts/jquery.min.js", :type => "text/javascript"}
+    / Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    %script{:src => "/javascripts/jquery.ui.core.min.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/jquery.ui.widget.min.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/jquery.ui.tabs.min.js", :type => "text/javascript"}
+    / jQuery tooltips
+    %script{:src => "/javascripts/jquery.tipTip.min.js", :type => "text/javascript"}
+    / Superfish navigation
+    %script{:src => "/javascripts/jquery.superfish.min.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/jquery.supersubs.min.js", :type => "text/javascript"}
+    / jQuery form validation
+    %script{:src => "/javascripts/jquery.validate_pack.js", :type => "text/javascript"}
+    / jQuery popup box
+    %script{:src => "/javascripts/jquery.nyroModal.pack.js", :type => "text/javascript"}
+    / Internet Explorer Fixes
+    /[if IE]
+      <link rel="stylesheet" type="text/css" media="all" href="/stylesheets/ie.css"/>
+      <script src="/javascripts/html5.js"></script>
+    / Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js
+    /[if lt IE 8]
+      <script src="/javascripts/IE8.js"></script>
+    :javascript
+      $(document).ready(function(){
+      	
+      	/* setup navigation, content boxes, etc... */
+      	Administry.setup();
+      	
+      	// validate signup form on keyup and submit
+      	var validator = $("#loginform").validate({
+      		rules: {
+      			username: "required",
+      			password: "required"
+      		},
+      		messages: {
+      			username: "Enter your username",
+      			password: "Provide your password"
+      		},
+      		// the errorPlacement has to take the layout into account
+      		errorPlacement: function(error, element) {
+      			error.insertAfter(element.parent().find('label:first'));
+      		},
+      		// set new class to error-labels to indicate valid fields
+      		success: function(label) {
+      			// set   as text for IE
+      			label.html(" ").addClass("ok");
+      		}
+      	});
+      
+      });
   %body
-    #container
-      %ul.user_nav
-        = render 'devise/menu/registration_items'
-        = render 'devise/menu/login_items'
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
-      = content_tag :h1, yield(:title) if show_title?
-      = yield
+    / Header
+    %header#top
+      .wrapper-login
+        / Title/Logo - can use text instead of image
+        #title
+          %img{:alt => "Administry", :src => "/images/logo.png"}/
+          / <span>Administry</span> demo
+        / Main navigation
+        %nav#menu
+          %ul.sf-menu
+            %li.current
+              = link_to 'Login', login_path
+            %li
+              = link_to 'Register', register_path
+        / End of Main navigation
+        / Aside links
+        %aside
+          %b English
+          \·
+          %a{:href => "#"} Spanish
+          \·
+          %a{:href => "#"} German
+        / End of Aside links
+    / End of Header
+    / Page title
+    #pagetitle
+      .wrapper-login
+    / End of Page title
+    / Page content
+    #page
+      / Wrapper
+      .wrapper-login
+        = yield
+      / End of Wrapper
+    / End of Page content
+    / Page footer
+    %footer#bottom
+      .wrapper-login
+        %p
+          Copyright © 2010
+          %b
+            %a{:href => "http://themeforest.net/user/zoranjuric", :title => "Visit my profile page @ThemeForest"} Zoran Juric
+          | Icons by
+          %a{:href => "http://www.famfamfam.com/"} FAMFAMFAM
+    / End of Page footer
+    / User interface javascript load
+    %script{:src => "js/administry.js", :type => "text/javascript"}
+

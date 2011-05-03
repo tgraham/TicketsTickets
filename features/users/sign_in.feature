@@ -11,10 +11,10 @@ Feature: Sign in
       Then I should see "Invalid email, login, or password."
       And I go to the home page
       And I should be signed out
-
+    
     Scenario: User enters wrong password
       Given I am not logged in
-      And I am a user named "Foo Bar" with an login "user@test.com" and password "please"
+      And I am a user named "Foo Bar" with an email "user@test.com" and password "please"
       When I go to the sign in page
       And I sign in as "user@test.com/wrongpassword"
       Then I should see "Invalid email, login, or password."
@@ -23,7 +23,7 @@ Feature: Sign in
 
     Scenario: User signs in successfully with email
       Given I am not logged in
-      And I am a user named "Foo Bar" with an login "user@test.com" and password "please"
+      And I am a user named "Foo Bar" with an email "user@test.com" and password "please"
       When I go to the sign in page
       And I sign in as "user@test.com/please"
       Then I should see "Signed in successfully."
