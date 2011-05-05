@@ -1,4 +1,5 @@
 TicketsTickets::Application.routes.draw do
+
   root :to => "static#index"
   
   devise_for :users do
@@ -10,7 +11,9 @@ TicketsTickets::Application.routes.draw do
   namespace :users do
     root :to => "clients#index"
   end
-  
+
+  match '/dashboard' => 'dashboards#dashboard'
+
   resources :users, :only => :show
   
 end

@@ -1,5 +1,6 @@
 %section.full
   %h2 Login
+  .box.box-info Login Using your email address and password
   = form_for(resource, :as => resource_name, :url => session_path(resource_name), :id => 'loginform') do |f|
     %p 
       = f.label :email, 'Login', :class => 'required'
@@ -13,6 +14,5 @@
       %p
         = f.check_box :remember_me, :id => 'remember'
         = f.label :remember_me, :class => 'choice'
-    %p= f.submit "Login", :class => 'btn btn-green big'
-  %br/
-  = render :partial => "devise/shared/links"
+    %p= f.submit "Login", :class => 'btn btn-green big' 
+    = render :partial => "devise/shared/links"

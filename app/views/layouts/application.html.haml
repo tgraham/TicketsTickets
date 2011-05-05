@@ -69,14 +69,28 @@
         / End of Aside links
     / End of Header
     / Page title
-    #pagetitle
-      .wrapper-login
-    / End of Page title
+    - if !current_user
+      #pagetitle
+        .wrapper-login
+    - else
+      / Page title
+      #pagetitle
+        .wrapper
+          %h1 Dashboard
+          / Quick search box
+          %form{:action => "", :method => "get"}
+            %input#q{:name => "q", :type => "text"}/
+      / End of Page title
+
     / Page content
     #page
       / Wrapper
-      .wrapper-login
-        = yield
+      - if !current_user
+        .wrapper-login
+          = yield
+      - else
+        .wrapper
+          = yield
       / End of Wrapper
     / End of Page content
     / Page footer
@@ -90,5 +104,4 @@
           %a{:href => "http://www.famfamfam.com/"} FAMFAMFAM
     / End of Page footer
     / User interface javascript load
-    %script{:src => "/javascripts/administry.js", :type => "text/javascript"}
-
+    = javascript_include_tag 'administry'

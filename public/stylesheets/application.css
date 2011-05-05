@@ -1015,7 +1015,7 @@ a:focus>.sf-sub-indicator,a:hover>.sf-sub-indicator,a:active>.sf-sub-indicator,l
 	padding:4px 24px 4px 4px;
 	vertical-align:middle;
 	width:202px;
-	background:#fff url("search.gif") no-repeat 99% 56%;
+	background:#fff url("/images/search.gif") no-repeat 99% 56%;
 	-moz-box-shadow:0 0;
 	-webkit-box-shadow:0 0;
 	box-shadow:0 0;
