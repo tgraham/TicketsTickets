@@ -7,7 +7,7 @@ Feature: Edit User
       Given I am a user named "Foo Bar" with an email "user@test.com" and password "please"
       When I sign in as "user@test.com/please"
       Then I should be signed in
-      When I follow "Edit account"
+      When I follow "Settings"
       And I fill in "Full Name" with "Foo Bar"
       And I fill in "Current password" with "please"
       And I press "Update"
