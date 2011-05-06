@@ -2,9 +2,9 @@
 %html{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}/
-    %title Administry - Admin Template by Zoran Juric
-    %meta{:content => "Administry - Admin Template by Zoran Juric", :name => "description"}/
-    %meta{:content => "Admin,Template", :name => "keywords"}/
+    %title TicketsTickets
+    %meta{:content => "TicketsTickets", :name => "description"}/
+    %meta{:content => "Tickets", :name => "keywords"}/
     / Favicons
     %link{:href => "/images/favicons/favicon.png", :rel => "shortcut icon", :type => "image/png"}/
     %link{:href => "/images/favicons/favicon.png", :rel => "icon", :type => "image/png"}/
@@ -29,14 +29,14 @@
       .wrapper
         / Title/Logo - can use text instead of image
         #title
-          %img{:alt => "Administry", :src => "/images/logo.png"}/
+          %img{:alt => "TicketsTickets", :src => "/images/logo.png"}/
           / <span>Administry</span> demo
         / Main navigation
         / Top navigation
         - if current_user
           #topnav
             %a{:href => "#"}
-              %img.avatar{:alt => "", :src => "/images/user_32.png"}/
+              = image_tag avatar_url(current_user), :class => 'avatar'
             Logged in as
             %b
               = current_user.full_name
