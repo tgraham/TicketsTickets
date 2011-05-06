@@ -76,6 +76,7 @@
     - if !current_user
       #pagetitle
         .wrapper-login
+
     - else
       / Page title
       #pagetitle
@@ -88,6 +89,8 @@
 
     / Page content
     #page
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}", :class => 'box box-info'
       / Wrapper
       - if !current_user
         .wrapper-login
