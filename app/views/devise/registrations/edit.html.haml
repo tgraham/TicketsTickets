@@ -1,3 +1,5 @@
+- title 'Settings'
+
 %h2
   Edit #{resource_name.to_s.humanize}
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
@@ -24,7 +26,7 @@
     %i (we need your current password to confirm your changes)
     %br/
     = f.password_field :current_password
-  %p= f.submit "Update"
+  %p= f.submit "Update", :class => 'btn'
 %h3 Cancel my account
 %p
   Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}.

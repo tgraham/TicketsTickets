@@ -2,7 +2,9 @@
 %html{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}/
-    %title TicketsTickets
+    %title 
+      TicketsTickets
+      = "- " + yield(:title) unless !:title
     %meta{:content => "TicketsTickets", :name => "description"}/
     %meta{:content => "Tickets", :name => "keywords"}/
     / Favicons
@@ -40,9 +42,11 @@
             Logged in as
             %b
               = current_user.full_name
-            %span |
+            %span
+              |
             = link_to 'Settings', edit_user_registration_path
-            %span |
+            %span
+              |
             = link_to 'Logout', logout_path
             %br/
             %small
@@ -60,12 +64,12 @@
               = render 'devise/menu/login_items'
         / End of Main navigation
         / Aside links
-        %aside
-          %b English
-          \·
-          %a{:href => "#"} Spanish
-          \·
-          %a{:href => "#"} German
+        / %aside
+        /           %b English
+        /           \·
+        /           %a{:href => "#"} Spanish
+        /           \·
+        /           %a{:href => "#"} German
         / End of Aside links
     / End of Header
     / Page title
@@ -76,7 +80,7 @@
       / Page title
       #pagetitle
         .wrapper
-          %h1 Dashboard
+          %h1= yield(:title) unless !:title
           / Quick search box
           %form{:action => "", :method => "get"}
             %input#q{:name => "q", :type => "text"}/

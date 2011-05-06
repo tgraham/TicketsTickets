@@ -1,3 +1,4 @@
+- title "Dashboard"
 / Left column/section
 %section.column.width6.first
   .colgroup.leading
@@ -115,7 +116,7 @@
       %dt
         %img{:alt => "", :height => "16", :src => "/images/key.png", :width => "16"}/
       %dd
-        = link_to 'Administry (admin)', edit_user_registration_path
+        = link_to @user.email + ' (' + @user.full_name + ')', edit_user_registration_path
       %dd.last Free Account.
       %dt
         %img{:alt => "", :height => "16", :src => "/images/help.png", :width => "16"}/
