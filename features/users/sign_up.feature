@@ -2,7 +2,7 @@ Feature: Signing up
 In order to create tickets
 As a user
 I want to be able to sign up
-    
+
 Scenario: Signing up
   Given I am on the homepage
   When I follow "Register"
@@ -12,7 +12,7 @@ Scenario: Signing up
   And I fill in "Password confirmation" with "password" 
   And I press "Register"
   Then I should see "You have signed up successfully."
-  
+
 Scenario: User signs up with invalid email
   Given I am not logged in
   When I go to the sign up page
