@@ -43,9 +43,9 @@ end
 When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
   Given %{I am not logged in}
   When %{I go to the sign in page}
-  And %{I fill in "Login" with "#{email}"}
+  And %{I fill in "Email" with "#{email}"}
   And %{I fill in "Password" with "#{password}"}
-  And %{I press "Sign in"}
+  And %{I press "Login"}
 end
 
 Then /^I should be signed in$/ do

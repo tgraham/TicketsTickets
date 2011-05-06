@@ -15,63 +15,55 @@
     .column.width3
       %h4 Last login
       %p
-        Monday July 12th, 2010 at 11:32am from 127.0.0.1
-        %br/
-        No error login attempts.
+        = @user.last_sign_in_at.strftime("%A %b %e, %Y at %l:%M%p ")
+        from
+        = @user.last_sign_in_ip.to_s
   .colgroup.leading
     .column.width3.first
       %h4
-        Invoices:
+        Tickets:
         %a{:href => "#"} 10
       %hr/
       %table.no-style.full
         %tbody
           %tr
-            %td Total Invoices
+            %td Total Tickets
             %td.ta-right
               %a{:href => "#"} 10
-            %td.ta-right $1,322.10
           %tr
-            %td Total Paid
+            %td Total Open
             %td.ta-right
               %a{:href => "#"} 9
-            %td.ta-right $900.00
           %tr
-            %td Total Due
+            %td Total Answered
             %td.ta-right
               %a{:href => "#"} 1
-            %td.ta-right $422.10
           %tr
-            %td Total Overdue
+            %td Total Closed
             %td.ta-right 0
-            %td.ta-right $0.00
     .column.width3
       %h4
-        Sales:
+        Assets:
         %a{:href => "#"} 1
       %hr/
       %table.no-style.full
         %tbody
           %tr
-            %td Clients This Month
+            %td Servers
             %td.ta-right
               %a{:href => "#"} 1
-            %td.ta-right
           %tr
-            %td Sales This Month
+            %td Desktops
             %td.ta-right
               %a{:href => "#"} 9
-            %td.ta-right $900.00
           %tr
-            %td Clients Total
+            %td Laptops
             %td.ta-right
               %a{:href => "#"} 5
-            %td.ta-right
           %tr
-            %td Sales Total
+            %td Misc.
             %td.ta-right
               %a{:href => "#"} 9
-            %td.ta-right $900.00
   .colgroup.leading
     .column.width3.first
       %h4 Client Stats

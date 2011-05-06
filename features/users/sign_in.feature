@@ -2,7 +2,7 @@ Feature: Sign in
   In order to get access to protected sections of the site
   A user
   Should be able to sign in
-
+    @wip
     Scenario: User is not signed up
       Given I am not logged in
       And no user exists with an email of "user@test.com"
