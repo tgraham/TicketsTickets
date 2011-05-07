@@ -33,7 +33,7 @@
           %tr
             %td Total Open
             %td.ta-right.open_tickets
-              = @user.tickets.totals('Open')
+              = link_to @user.tickets.totals('Open'), tickets_path
           %tr
             %td Total Answered
             %td.ta-right.answered_tickets

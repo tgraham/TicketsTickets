@@ -1,11 +1,15 @@
 class Ticket
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
   
   field :subject
   field :description
   field :priority
   field :status
+
+  slug :status, :as => :status
+  slug :subject, :as => :subject
   
   attr_accessible :subject, :description, :priority, :status
   

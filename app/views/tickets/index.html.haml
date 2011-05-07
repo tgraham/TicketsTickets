@@ -1,0 +1,18 @@
+%table#ticketlist.no-style.full
+  %thead
+    %tr
+      %th Subject
+      %th Description
+      %th Assignee
+      %th Priority Level
+      %th Status
+  %tbody
+    - @tickets.each do |ticket|
+      %tr
+        %td= link_to ticket.subject, ticket
+        %td= ticket.description
+        %td= ticket.user.full_name
+        %td= ticket.priority
+        %td= ticket.status
+-# = paginate @tickets
+

@@ -3,7 +3,13 @@ class TicketsController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :set_current_user
-  
+
+  def index
+    @tickets = Ticket.all
+    #@tickets = @user.tickets.find(params[:status])
+    logger.info "### Check Tickets ### #{@tickets.inspect}"
+  end
+
   def new
     @ticket = @user.tickets.build
   end
@@ -20,5 +26,9 @@ class TicketsController < ApplicationController
         format.html { render :new }
       end
     end
+  end
+
+  def show
+    @ticket = Ticket.find(params[:subject])
   end
 end
