@@ -12,5 +12,4 @@ Feature: Submit Ticket
     And I fill in "Description" with "It's all broked"
     And I select "Medium" from "Priority"
     And I press "Submit"
-    And I go to the dashboard
     Then I should see "Ticket successfully created"

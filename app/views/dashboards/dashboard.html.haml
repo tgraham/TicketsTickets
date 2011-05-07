@@ -33,14 +33,15 @@
           %tr
             %td Total Open
             %td.ta-right
-              %a{:href => "#"} 9
+              = @user.tickets.totals('Open')
           %tr
             %td Total Answered
             %td.ta-right
-              %a{:href => "#"} 1
+              = @user.tickets.totals('Answered')
           %tr
             %td Total Closed
-            %td.ta-right 0
+            %td.ta-right
+              = @user.tickets.totals('Closed')
       %span
         = link_to 'Create Ticket', new_ticket_path, :class => 'btn btn-green'
     .column.width3
