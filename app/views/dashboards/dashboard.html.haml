@@ -21,7 +21,7 @@
   .colgroup.leading
     .column.width3.first
       %h4
-        Tickets:
+        Tickets: 
         = link_to @user.tickets.count, tickets_path
       %hr/
       %table.no-style.full
@@ -33,15 +33,15 @@
           %tr
             %td Total Open
             %td.ta-right.open_tickets
-              = link_to @user.tickets.totals('Open'), tickets_path
+              = link_to @user.tickets.totals('Open'), tickets_status_path('open')
           %tr
             %td Total Answered
             %td.ta-right.answered_tickets
-              = @user.tickets.totals('Answered')
+              = link_to @user.tickets.totals('Answered'), tickets_status_path('answered')
           %tr
             %td Total Closed
             %td.ta-right.closed_tickets
-              = @user.tickets.totals('Closed')
+              = link_to @user.tickets.totals('Closed'), tickets_status_path('closed')
       %span.dashboard_button
         = link_to 'Create Ticket', new_ticket_path, :class => 'btn btn-green'
     .column.width3

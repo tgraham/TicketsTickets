@@ -1151,7 +1151,7 @@ footer#animated a:hover, footer#animated a:focus, footer#animated a:active {
 	position: relative;
 	cursor: pointer;
 	border:1px solid #ccc !important;
-	background:#fff url("btn-overlay.png") repeat-x !important;
+	background:#fff url("/images/btn-overlay.png") repeat-x !important;
 }
 .btn:hover, .btn:focus, .btn:active {
 	outline:medium none;

@@ -1,5 +1,9 @@
 - title "Ticket"
 .column.width8.first
+  %br/
   #info
     = @ticket.subject
-
+  %hr/
+  #info
+    = simple_format(@ticket.description)
+  %br/

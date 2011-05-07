@@ -21,10 +21,8 @@ class Ticket
   belongs_to_related :user
   
   class << self
-    
     def totals(status)
       where(:status => status).count
     end
   end
-  
 end

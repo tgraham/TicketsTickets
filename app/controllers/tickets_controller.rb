@@ -5,9 +5,11 @@ class TicketsController < ApplicationController
   before_filter :set_current_user
 
   def index
-    @tickets = Ticket.all
-    #@tickets = @user.tickets.find(params[:status])
-    logger.info "### Check Tickets ### #{@tickets.inspect}"
+    if params[:status]
+      @tickets = Ticket.where(:status => params[:status].camelize)
+    else
+      @tickets = Ticket.all
+    end
   end
 
   def new
@@ -29,6 +31,6 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket.find(params[:subject])
+    @ticket = Ticket.find_by_subject(params[:subject])
   end
 end

@@ -1,5 +1,7 @@
 %li{:class => controller_name == 'dashboards' ? 'current' : ''}
   =link_to 'Dashboard', dashboard_path
+%li{:class => controller_name == 'tickets' ? 'current' : ''}
+  =link_to 'Tickets', tickets_path
 / %li
 /   %a{:href => "styles.html"} Styles
 /   %ul

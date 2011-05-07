@@ -1,3 +1,4 @@
+- title 'Tickets'
 %table#ticketlist.no-style.full
   %thead
     %tr
@@ -9,8 +10,8 @@
   %tbody
     - @tickets.each do |ticket|
       %tr
-        %td= link_to ticket.subject, ticket
-        %td= ticket.description
+        %td= link_to ticket.subject, show_ticket_path(ticket)
+        %td= truncate(ticket.description, :length => 25, :omission => '...', :separater => ' ')
         %td= ticket.user.full_name
         %td= ticket.priority
         %td= ticket.status
