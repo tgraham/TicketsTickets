@@ -297,6 +297,11 @@ article,aside,header,hgroup,nav,section,footer {
 	float:left;
 	display:block;
 }
+
+nav.right {
+  float: right;
+  display: block;
+}
 figure {
 	display: block;
 }
@@ -805,7 +810,7 @@ header#top aside a{
 }
 #topnav img.avatar {
 	float:right;
-	margin:5px 0 0 8px;
+	margin:2px 0 0 8px;
 	padding:2px;
 	border:4px solid #FFFFFF;
 }

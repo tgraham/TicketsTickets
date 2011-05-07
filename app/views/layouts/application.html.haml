@@ -31,7 +31,8 @@
       .wrapper
         / Title/Logo - can use text instead of image
         #title
-          %img{:alt => "TicketsTickets", :src => "/images/logo.png"}/
+          = link_to(image_tag('/images/logo.png'), root_path)
+          / %img{:alt => "TicketsTickets", :src => "/images/logo.png"}/
           / <span>Administry</span> demo
         / Main navigation
         / Top navigation
@@ -42,12 +43,12 @@
             Logged in as
             %b
               = current_user.full_name
-            %span
-              |
-            = link_to 'Settings', edit_user_registration_path
-            %span
-              |
-            = link_to 'Logout', logout_path
+            / %span
+            /               |
+            /             = link_to 'Settings', edit_user_registration_path
+            /             %span
+            /               |
+            /             = link_to 'Logout', logout_path
             %br/
             %small
               You have
@@ -57,11 +58,12 @@
         / End of Top navigation
         
         %nav#menu
-          %ul.sf-menu
-            - if current_user
+          - if current_user
+            %ul.sf-menu
               = render 'layouts/shared/menu_items'
-            - else
-              = render 'devise/menu/login_items'
+        %nav.right
+          %ul.sf-menu
+            = render 'devise/menu/login_items'
         / End of Main navigation
         / Aside links
         / %aside

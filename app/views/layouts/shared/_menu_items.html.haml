@@ -1,23 +1,23 @@
-%li.current
+%li{:class => controller_name == 'dashboards' ? 'current' : ''}
   =link_to 'Dashboard', dashboard_path
-%li
-  %a{:href => "styles.html"} Styles
-  %ul
-    %li
-      %a{:href => "styles.html"} Basic Styles
-    %li
-      %a{:href => "#"} Sample Pages...
-      %ul
-        %li
-          %a{:href => "samples-files.html"} Files
-        %li
-          %a{:href => "samples-products.html"} Products
-%li
-  %a{:href => "grid.html"} Grid
-%li
-  %a{:href => "tables.html"} Tables
-%li
-  %a{:href => "forms.html"} Forms
-%li
-  %a{:href => "graphs.html"} Graphs
+/ %li
+/   %a{:href => "styles.html"} Styles
+/   %ul
+/     %li
+/       %a{:href => "styles.html"} Basic Styles
+/     %li
+/       %a{:href => "#"} Sample Pages...
+/       %ul
+/         %li
+/           %a{:href => "samples-files.html"} Files
+/         %li
+/           %a{:href => "samples-products.html"} Products
+/ %li
+/   %a{:href => "grid.html"} Grid
+/ %li
+/   %a{:href => "tables.html"} Tables
+/ %li
+/   %a{:href => "forms.html"} Forms
+/ %li
+/   %a{:href => "graphs.html"} Graphs
 
