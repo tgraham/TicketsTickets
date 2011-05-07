@@ -1,0 +1,19 @@
+- title 'New Ticket'
+%section.full
+  %h2 New Ticket
+  
+  = form_for @ticket do |f|
+    %p
+      = f.label :subject, 'Subject', :class => 'required'
+      %br/
+      = f.text_field :subject, :class => 'full'
+    %p
+      = f.label :description, 'Description', :class => 'required'
+      %br/
+      = f.text_area :description, :class => 'medium full'
+    %p
+      = f.label :priority
+      %br/
+      = f.select :priority, Ticket::PRIORITY
+    %p= f.submit "Submit", :class => 'btn btn-green big'
+  %br/

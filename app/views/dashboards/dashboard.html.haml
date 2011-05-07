@@ -22,14 +22,14 @@
     .column.width3.first
       %h4
         Tickets:
-        %a{:href => "#"} 10
+        = link_to @user.tickets.count, tickets_path
       %hr/
       %table.no-style.full
         %tbody
           %tr
             %td Total Tickets
             %td.ta-right
-              %a{:href => "#"} 10
+              = link_to @user.tickets.count, tickets_path
           %tr
             %td Total Open
             %td.ta-right
@@ -41,6 +41,8 @@
           %tr
             %td Total Closed
             %td.ta-right 0
+      %span
+        = link_to 'Create Ticket', new_ticket_path, :class => 'btn btn-green'
     .column.width3
       %h4
         Assets:

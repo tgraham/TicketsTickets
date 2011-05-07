@@ -5,4 +5,9 @@ class ApplicationController < ActionController::Base
     stored_location_for(:user) || dashboard_path
   end
   
+private
+
+  def set_current_user
+    @user = current_user
+  end
 end

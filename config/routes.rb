@@ -15,5 +15,6 @@ TicketsTickets::Application.routes.draw do
   match '/dashboard' => 'dashboards#dashboard'
 
   resources :users, :only => :show
+  resources :tickets
   
 end
