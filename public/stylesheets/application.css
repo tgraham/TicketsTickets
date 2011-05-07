@@ -743,6 +743,11 @@ fieldset small {
 	width: 360px;
 }
 
+.wrapper-flash {
+  width: 360px;
+  margin: 8px auto;
+}
+
 header#top {
 	background-color: #282828;
 	width:100%;

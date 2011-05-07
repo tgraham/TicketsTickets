@@ -15,7 +15,8 @@
     = stylesheet_link_tag 'application', 'custom'
 
     / jQuery with plugins
-    = javascript_include_tag 'jquery.min', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.tabs.min', 'jquery.tipTip.min', 'jquery.superfish.min'
+    = javascript_include_tag 'jquery.min', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.tabs.min', 'jquery.tipTip.min'
+    = javascript_include_tag 'jquery.superfish.min', 'flot/jquery.flot.min'
     = javascript_include_tag 'jquery.supersubs.min', 'jquery.validate_pack', 'jquery.nyroModal.pack','swfobject', 'application'
 
     / Internet Explorer Fixes
@@ -91,8 +92,9 @@
 
     / Page content
     #page
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}", :class => 'box box-info'
+      .wrapper-flash
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}", :class => 'box box-info'
       / Wrapper
       - if !current_user
         .wrapper-login
