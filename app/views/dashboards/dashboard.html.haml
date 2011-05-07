@@ -42,7 +42,7 @@
             %td Total Closed
             %td.ta-right.closed_tickets
               = @user.tickets.totals('Closed')
-      %span
+      %span.dashboard_button
         = link_to 'Create Ticket', new_ticket_path, :class => 'btn btn-green'
     .column.width3
       %h4
@@ -67,6 +67,8 @@
             %td Misc.
             %td.ta-right
               %a{:href => "#"} 9
+      %span.dashboard_button
+        = link_to 'Create Asset', 'javascript:void(0)', :class => 'btn btn-green'
   .colgroup.leading
     .column.width3.first
       %h4 Ticket Stats
@@ -78,7 +80,7 @@
             %td.ta-right
               = @user.tickets.totals('Open').to_s + "/" + @user.tickets.count.to_s
             %td
-              #progress1.progress.full.progress-green
+              #progress1.progress.full.progress-red
                 %span
                   %b
           %tr
@@ -86,7 +88,7 @@
             %td.ta-right
               = @user.tickets.totals('Answered').to_s + "/" + @user.tickets.count.to_s
             %td
-              #progress2.progress.full.progress-blue
+              #progress2.progress.full.progress-yellow
                 %span
                   %b
           %tr
@@ -94,7 +96,7 @@
             %td.ta-right
               = @user.tickets.totals('Closed').to_s + "/" + @user.tickets.count.to_s
             %td
-              #progress3.progress.full.progress-red
+              #progress3.progress.full.progress-green
                 %span
                   %b
     .column.width3

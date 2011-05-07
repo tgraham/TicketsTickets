@@ -1208,6 +1208,10 @@ footer#animated a:hover, footer#animated a:focus, footer#animated a:active {
 	width: 210px;
 }
 
+span.dashboard_button a {
+  margin-top: 10px;
+}
+
 /* Icons
 ---------------------------------------------------------------------*/
 
@@ -1438,6 +1442,12 @@ div.progress span b{
 	background-color: #C44747;
 	background: -moz-linear-gradient(top, #DD5F5F 10%, #A92C2C 90%);
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.1, #DD5F5F), color-stop(0.9, #A92C2C));
+}
+
+.progress-yellow span {
+	background-color: #FFDC00;
+	background: -moz-linear-gradient(top, #FFF200 10%, #E8CA00 90%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.1, #FFF200), color-stop(0.9, #E8CA00));
 }
 
 /* Top
