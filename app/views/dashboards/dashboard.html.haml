@@ -28,19 +28,19 @@
         %tbody
           %tr
             %td Total Tickets
-            %td.ta-right
+            %td.ta-right.total_tickets
               = link_to @user.tickets.count, tickets_path
           %tr
             %td Total Open
-            %td.ta-right
+            %td.ta-right.open_tickets
               = @user.tickets.totals('Open')
           %tr
             %td Total Answered
-            %td.ta-right
+            %td.ta-right.answered_tickets
               = @user.tickets.totals('Answered')
           %tr
             %td Total Closed
-            %td.ta-right
+            %td.ta-right.closed_tickets
               = @user.tickets.totals('Closed')
       %span
         = link_to 'Create Ticket', new_ticket_path, :class => 'btn btn-green'
@@ -69,27 +69,30 @@
               %a{:href => "#"} 9
   .colgroup.leading
     .column.width3.first
-      %h4 Client Stats
+      %h4 Ticket Stats
       %hr/
       %table.no-style.full
         %tbody
           %tr
-            %td Active
-            %td.ta-right 1/5
+            %td Open
+            %td.ta-right
+              = @user.tickets.totals('Open').to_s + "/" + @user.tickets.count.to_s
             %td
               #progress1.progress.full.progress-green
                 %span
                   %b
           %tr
-            %td Pending
-            %td.ta-right 2/5
+            %td Answered
+            %td.ta-right
+              = @user.tickets.totals('Answered').to_s + "/" + @user.tickets.count.to_s
             %td
               #progress2.progress.full.progress-blue
                 %span
                   %b
           %tr
-            %td Suspended
-            %td.ta-right 2/5
+            %td Closed
+            %td.ta-right
+              = @user.tickets.totals('Closed').to_s + "/" + @user.tickets.count.to_s
             %td
               #progress3.progress.full.progress-red
                 %span
