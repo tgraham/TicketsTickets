@@ -16,9 +16,12 @@ module NavigationHelpers
 
     when /the sign in page/
       '/login'
-      
+
     when /the dashboard/
       '/dashboard'
+
+    when /the ticket page/
+      '/ticket/:subject'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

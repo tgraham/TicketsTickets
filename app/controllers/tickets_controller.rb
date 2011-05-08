@@ -33,4 +33,8 @@ class TicketsController < ApplicationController
   def show
     @ticket = Ticket.find_by_subject(params[:subject])
   end
+
+  def edit
+    @ticket = @user.tickets.build
+  end
 end

@@ -1,6 +1,6 @@
-- title 'New Ticket'
+- title 'Edit Ticket'
 %section.full
-  %h2 New Ticket
+  %h2 Edit Ticket
   
   = form_for @ticket do |f|
     %p
@@ -15,5 +15,9 @@
       = f.label :priority
       %br/
       = f.select :priority, Ticket::PRIORITY
+    %p
+      = f.label :status
+      %br/
+      = f.select :status, Ticket::STATUS
     %p= f.submit "Submit", :class => 'btn btn-green big'
   %br/
