@@ -16,7 +16,11 @@ TicketsTickets::Application.routes.draw do
   
   resources :users do
     resources :tickets do
-      resources :replies
+      resources :replies do
+        collection do
+          post :create, :action => :create_for_ticket
+        end
+      end
     end
   end
   
