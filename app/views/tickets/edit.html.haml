@@ -19,5 +19,9 @@
       = f.label :status
       %br/
       = f.select :status, Ticket::STATUS
+    %p
+      = f.label :assigned_to, 'Assign Tech'
+      %br/
+      = f.collection_select :assigned_to, User.all, :id, :full_name
     %p= f.submit "Submit", :class => 'btn btn-green big'
   %br/

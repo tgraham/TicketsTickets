@@ -2,6 +2,7 @@
 %table#ticketlist.no-style.full
   %thead
     %tr
+      %th Number
       %th Subject
       %th Description
       %th Assignee
@@ -10,6 +11,7 @@
   %tbody
     - @tickets.each do |ticket|
       %tr
+        %td= link_to ticket.number, show_ticket_path(ticket.number)
         %td= link_to ticket.subject, show_ticket_path(ticket.number)
         %td= truncate(ticket.description, :length => 25, :omission => '...', :separater => ' ')
         %td= ticket.user.full_name

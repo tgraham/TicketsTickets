@@ -7,6 +7,7 @@ class Ticket
   field :description
   field :priority
   field :status
+  field :assigned_to
   
   index :number
   index :status
@@ -17,7 +18,7 @@ class Ticket
   belongs_to_related :user
   embeds_many :replies
   
-  attr_accessible :number, :subject, :description, :priority, :status
+  attr_accessible :number, :subject, :description, :priority, :status, :assigned_to
   
   before_validation :generate_ticket_number
   

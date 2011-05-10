@@ -29,5 +29,6 @@ TicketsTickets::Application.routes.draw do
   
   match '/tickets/status/:status' => 'tickets#index', :as => :tickets_status
   match '/ticket/:number' => 'tickets#show', :as => :show_ticket
+  match '/ticket/:number/edit' => 'tickets#edit', :as => :edit_ticket
   
 end

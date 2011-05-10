@@ -5,15 +5,36 @@
 .column.width8.first
   %br/
   #info
-    = @ticket.subject
-  %hr/
+    %span.ticket-title
+      %strong="#{@ticket.subject}   | Assigned To: #{@ticket.assigned_to}  |  Status: #{@ticket.status}"
+    %br
+      %span.ticket-stamp
+        Reported by
+      %span.author
+        = @ticket.user.full_name
+      %span.ticket-stamp
+        on
+      %span.timestamp
+        = @ticket.created_at.to_s(:long)
+      %span.relativetime
+        = "(#{distance_of_time_in_words(@ticket.created_at, Time.now)} ago)"
   #info
     = simple_format(@ticket.description)
   %br/
+  = link_to 'Edit Ticket', edit_ticket_path, :class => 'btn btn-green'
   %h3 Replies
   #info
     - @ticket.replies.each do |r|
-      %p= r.comment
+      %p
+        %span.ticket-title
+          %strong= r.user_email
+        %br
+          %span.timestamp
+            = r.created_at.to_s(:long)
+          %span.relativetime
+            = "(#{distance_of_time_in_words(r.created_at, Time.now)} ago)"
+          #description{:style => "max-width:900px;"}
+            %p= simple_format(r.comment)
   %hr/
 .column.width8.last
   %br/
