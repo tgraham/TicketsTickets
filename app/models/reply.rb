@@ -14,8 +14,8 @@ class Reply
   
   private
     def ticket_status
-      # user.is_admin? ? 'Answered' : 'Customer-Reply'
-      'Answered'
+      # user.is_admin? ? 'answered' : 'customer_reply'
+      'answered'
     end
     
     def update_ticket

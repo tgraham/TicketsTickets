@@ -9,8 +9,9 @@ $(document).ready(function(){
 	/* progress bar animations - setting initial values */
   // alert($('td.ta-right.open_tickets').text());
 	Administry.progress("#progress1", $('td.ta-right.open_tickets').text() ,$('td.ta-right.total_tickets').text());
-	Administry.progress("#progress2", $('td.ta-right.answered_tickets').text() ,$('td.ta-right.total_tickets').text());
-	Administry.progress("#progress3", $('td.ta-right.closed_tickets').text() ,$('td.ta-right.total_tickets').text());
+	Administry.progress("#progress2", $('td.ta-right.customer_reply_tickets').text() ,$('td.ta-right.total_tickets').text());
+	Administry.progress("#progress3", $('td.ta-right.answered_tickets').text() ,$('td.ta-right.total_tickets').text());
+	Administry.progress("#progress4", $('td.ta-right.closed_tickets').text() ,$('td.ta-right.total_tickets').text());
 
 	// validate signup form on keyup and submit
 	var validator = $("#loginform").validate({

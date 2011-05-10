@@ -23,10 +23,10 @@
     %p
       = f.label :status
       %br/
-      = f.select :status, Ticket::STATUS
+      = f.select :status, Ticket::STATUS.collect! {|x| [x.humanize, x]}
     %p
       = f.label :assigned_to, 'Assign Tech'
       %br/
-      = f.collection_select :assigned_to, User.all, :id, :full_name
+      = f.collection_select :assigned_to, User.all, :id, :full_name, :include_blank => true
     %p= f.submit "Submit", :class => 'btn btn-green big'
   %br/

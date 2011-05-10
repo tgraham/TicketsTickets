@@ -4,7 +4,10 @@
   %br/
   #info
     %span.ticket-title
-      %strong="#{@ticket.subject}   | Assigned To: #{@ticket.tech}  |  Status: #{@ticket.status}"
+      %strong
+        = @ticket.subject
+        = "  | Assigned To: #{@ticket.tech}" unless @ticket.assigned_to.nil?
+        = "  |  Status: #{@ticket.status.humanize}"
     %br
       %span.ticket-stamp
         Reported by

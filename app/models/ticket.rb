@@ -13,7 +13,7 @@ class Ticket
   index :status
   index :subject
   
-  validates :number, :subject, :description, :presence => true
+  validates :subject, :description, :presence => true
   
   belongs_to_related :user
   embeds_many :replies
@@ -23,7 +23,7 @@ class Ticket
   before_create :generate_ticket_number
   
   PRIORITY = %w[Low Medium High]
-  STATUS = %w[Open Answered Customer-Reply On-hold Closed]
+  STATUS = %w[open answered customer_reply on_hold closed]
   
   def tech
     User.where(:_id => self.assigned_to).first.full_name

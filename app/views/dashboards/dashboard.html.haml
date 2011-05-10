@@ -33,15 +33,19 @@
           %tr
             %td Total Open
             %td.ta-right.open_tickets
-              = link_to @user.tickets.totals('Open'), tickets_status_path('open')
+              = link_to @user.tickets.totals('open'), tickets_status_path('open')
+          %tr
+            %td Total Customer Reply
+            %td.ta-right.customer_reply_tickets
+              = link_to @user.tickets.totals('customer_reply'), tickets_status_path('customer_reply')
           %tr
             %td Total Answered
             %td.ta-right.answered_tickets
-              = link_to @user.tickets.totals('Answered'), tickets_status_path('answered')
+              = link_to @user.tickets.totals('answered'), tickets_status_path('answered')
           %tr
             %td Total Closed
             %td.ta-right.closed_tickets
-              = link_to @user.tickets.totals('Closed'), tickets_status_path('closed')
+              = link_to @user.tickets.totals('closed'), tickets_status_path('closed')
       %span.dashboard_button
         = link_to 'Create Ticket', new_ticket_path, :class => 'btn btn-green'
     .column.width3
@@ -67,6 +71,9 @@
             %td Misc.
             %td.ta-right
               %a{:href => "#"} 9
+          %tr
+            %td &nbsp;
+            %td &nbsp;
       %span.dashboard_button
         = link_to 'Create Asset', 'javascript:void(0)', :class => 'btn btn-green'
   .colgroup.leading
@@ -78,25 +85,33 @@
           %tr
             %td Open
             %td.ta-right
-              = @user.tickets.totals('Open').to_s + "/" + @user.tickets.count.to_s
+              = @user.tickets.totals('open').to_s + "/" + @user.tickets.count.to_s
             %td
               #progress1.progress.full.progress-red
                 %span
                   %b
           %tr
-            %td Answered
+            %td Customer Reply
             %td.ta-right
-              = @user.tickets.totals('Answered').to_s + "/" + @user.tickets.count.to_s
+              = @user.tickets.totals('customer_reply').to_s + "/" + @user.tickets.count.to_s
             %td
               #progress2.progress.full.progress-yellow
                 %span
                   %b
           %tr
+            %td Answered
+            %td.ta-right
+              = @user.tickets.totals('answered').to_s + "/" + @user.tickets.count.to_s
+            %td
+              #progress3.progress.full.progress-blue
+                %span
+                  %b
+          %tr
             %td Closed
             %td.ta-right
-              = @user.tickets.totals('Closed').to_s + "/" + @user.tickets.count.to_s
+              = @user.tickets.totals('closed').to_s + "/" + @user.tickets.count.to_s
             %td
-              #progress3.progress.full.progress-green
+              #progress4.progress.full.progress-green
                 %span
                   %b
     .column.width3

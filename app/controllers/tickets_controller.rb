@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
 
   def index
     if params[:status]
-      @tickets = Ticket.where(:status => params[:status].camelize)
+      @tickets = Ticket.where(:status => params[:status])
     else
       @tickets = Ticket.all
     end
@@ -18,7 +18,7 @@ class TicketsController < ApplicationController
   
   def create
     @ticket = @user.tickets.build(params[:ticket])
-    @ticket.status = 'Open'
+    @ticket.status = 'open'
     if @ticket.save
       respond_to do |format|
         format.html { redirect_to dashboard_path, :notice => 'Ticket successfully created.' }

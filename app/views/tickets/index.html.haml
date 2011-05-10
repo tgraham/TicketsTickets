@@ -16,6 +16,6 @@
         %td= truncate(ticket.description, :length => 25, :omission => '...', :separater => ' ')
         %td= ticket.user.full_name
         %td= ticket.priority
-        %td= ticket.status
+        %td= ticket.status.humanize
 -# = paginate @tickets
 
