@@ -21,7 +21,7 @@ module NavigationHelpers
       '/dashboard'
 
     when /the ticket page/
-      '/ticket/:subject'
+      '/ticket/:number'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
