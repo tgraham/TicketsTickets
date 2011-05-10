@@ -31,7 +31,7 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket.find_by_subject(params[:subject])
+    @ticket = Ticket.where(:number => params[:number]).first
   end
 
   def edit

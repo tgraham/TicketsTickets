@@ -14,12 +14,16 @@ TicketsTickets::Application.routes.draw do
 
   match '/dashboard' => 'dashboards#dashboard'
   
-  resources :users, :only => :show
+  resources :users do
+    resources :tickets do
+      resources :replies
+    end
+  end
   
   # Tickets routes
   resources :tickets
   
   match '/tickets/status/:status' => 'tickets#index', :as => :tickets_status
-  match '/ticket/:subject' => 'tickets#show', :as => :show_ticket
+  match '/ticket/:number' => 'tickets#show', :as => :show_ticket
   
 end

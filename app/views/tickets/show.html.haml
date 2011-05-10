@@ -1,4 +1,7 @@
 - title "Ticket"
+
+= javascript_include_tag 'replies'
+
 .column.width8.first
   %br/
   #info
@@ -7,4 +10,19 @@
   #info
     = simple_format(@ticket.description)
   %br/
-  = link_to 'Edit Ticket', edit_ticket_path(@ticket), :class => 'btn btn-green'
+  %h3 Replies
+  #info
+    = @ticket.replies.each do |r|
+      %p= r.comment
+  %hr/
+.column.width8.last
+  %br/
+  #info
+    = form_for(Reply.new, :url => user_ticket_replies_path(@user, @ticket)) do |f|
+      %p
+        = f.label :comment
+        %br/
+        = f.text_area :comment, :class => 'medium full'
+        %br/
+      %span.message
+      %p= f.submit 'Submit', :class => 'btn btn-green'

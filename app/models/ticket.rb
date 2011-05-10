@@ -1,28 +1,43 @@
 class Ticket
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::Slug
   
+  field :number, :type => Integer
   field :subject
   field :description
   field :priority
   field :status
-
-  slug :status, :as => :status
-  slug :subject, :as => :subject
   
-  attr_accessible :subject, :description, :priority, :status
+  index :number
+  index :status
+  index :subject
+  
+  validates :number, :subject, :description, :presence => true
+  
+  belongs_to_related :user
+  embeds_many :replies
+  
+  attr_accessible :number, :subject, :description, :priority, :status
+  
+  before_validation :generate_ticket_number
   
   PRIORITY = %w[Low Medium High]
   STATUS = %w[Open Answered Customer-Reply On-hold Closed]
-  
-  validates :subject, :description, :presence => true
-  
-  belongs_to_related :user
   
   class << self
     def totals(status)
       where(:status => status).count
     end
+  end
+  
+  private
+  
+  def generate_ticket_number
+    ticket = Object.new
+    while ticket
+      random = rand(999999)
+      ticket = Ticket.where(:number => random).first
+    end
+    self.number = random
   end
 end

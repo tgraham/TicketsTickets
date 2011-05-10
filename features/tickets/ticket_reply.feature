@@ -9,7 +9,6 @@ Feature: Submit Ticket Reply
 
   @wip
   Scenario: I submit a ticket reply
-    When I fill in "Subject" with "Hello World!"
-    And I select "Answered" from "Status"
+    When I fill in "Comment" with "Hello World!"
     And I press "Submit"
     Then I should see "Ticket successfully answered"
