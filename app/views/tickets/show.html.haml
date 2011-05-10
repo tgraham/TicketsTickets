@@ -12,7 +12,7 @@
   %br/
   %h3 Replies
   #info
-    = @ticket.replies.each do |r|
+    - @ticket.replies.each do |r|
       %p= r.comment
   %hr/
 .column.width8.last
