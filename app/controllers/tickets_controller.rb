@@ -35,6 +35,15 @@ class TicketsController < ApplicationController
   end
 
   def edit
-    @ticket = @user.tickets.build
+    @ticket = @user.find_ticket(params[:number])
+  end
+  
+  def update
+    @ticket = @user.find_ticket(params[:ticket][:number])
+    if @ticket.update_attributes(params[:ticket])
+      redirect_to show_ticket_path(params[:ticket][:number]), :notice => "Ticket #{@ticket.number} has been updated." and return
+    else
+      redirect_to :back, :notice => "Something went wrong, try again."
+    end
   end
 end

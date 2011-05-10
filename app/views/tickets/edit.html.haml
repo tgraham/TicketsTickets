@@ -4,6 +4,11 @@
   
   = form_for @ticket do |f|
     %p
+      = f.label :number
+      %br/
+      = @ticket.number
+      = f.text_field :number, :hidden => true
+    %p
       = f.label :subject, 'Subject', :class => 'required'
       %br/
       = f.text_field :subject, :class => 'full'

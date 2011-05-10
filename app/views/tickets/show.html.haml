@@ -1,12 +1,10 @@
 - title "Ticket"
 
-= javascript_include_tag 'replies'
-
 .column.width8.first
   %br/
   #info
     %span.ticket-title
-      %strong="#{@ticket.subject}   | Assigned To: #{@ticket.assigned_to}  |  Status: #{@ticket.status}"
+      %strong="#{@ticket.subject}   | Assigned To: #{@ticket.tech}  |  Status: #{@ticket.status}"
     %br
       %span.ticket-stamp
         Reported by

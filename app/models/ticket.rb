@@ -20,10 +20,14 @@ class Ticket
   
   attr_accessible :number, :subject, :description, :priority, :status, :assigned_to
   
-  before_validation :generate_ticket_number
+  before_create :generate_ticket_number
   
   PRIORITY = %w[Low Medium High]
   STATUS = %w[Open Answered Customer-Reply On-hold Closed]
+  
+  def tech
+    User.where(:_id => self.assigned_to).first.full_name
+  end
   
   class << self
     def totals(status)

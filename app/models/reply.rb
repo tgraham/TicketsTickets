@@ -10,4 +10,15 @@ class Reply
   referenced_in :user
   embedded_in :ticket, :inverse_of => :replies
   
+  after_create :update_ticket
+  
+  private
+    def ticket_status
+      # user.is_admin? ? 'Answered' : 'Customer-Reply'
+      'Answered'
+    end
+    
+    def update_ticket
+      ticket.update_attributes(:status => ticket_status)
+    end
 end
