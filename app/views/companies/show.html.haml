@@ -1,0 +1,27 @@
+- title 'Company'
+
+.column.width8.first
+  %br/
+  #info
+    %span.company-name
+      %strong
+        = @company.name
+  #info
+    %span
+      = @company.address
+      %br/
+      = @company.city + ', ' + @company.state + '  ' + @company.zip_code
+      %br/
+      = @company.country
+      %br/
+      %br/
+  #info
+    %span
+      = @company.phone_number
+      %br/
+      = @company.web_address
+      %br/
+      %br/
+  #info.last
+    %span
+      = link_to 'Edit Company', edit_company_path, :class => 'btn btn-green'

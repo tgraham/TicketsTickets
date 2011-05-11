@@ -1,0 +1,36 @@
+= form_for @company do |f|
+  %p
+    = f.label :name, :class => 'required'
+    %br/
+    = f.text_field :name, :class => 'half'
+  %p
+    = f.label :address
+    %br/
+    = f.text_field :address, :class => 'half'
+  %p
+    = f.label :city
+    %br/
+    = f.text_field :city
+  %p
+    = f.label :state
+    %br/
+    = f.select :state, State::NAMES, :include_blank => true
+  %p
+    = f.label :zip_code
+    %br/
+    = f.text_field :zip_code
+  %p
+    = f.label :country
+    %br/
+    = f.select :country, Country::NAMES, :include_blank => true
+  %p
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+  %p
+    = f.label :web_address
+    %br/
+    = f.text_field :web_address, :class => 'half'
+    
+  %p= f.submit "Submit", :class => 'btn btn-green big'
+%br/

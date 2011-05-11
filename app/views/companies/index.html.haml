@@ -1,0 +1,22 @@
+- title 'Companies'
+
+%table#companylist.no-style.full
+  %thead
+    %tr
+      %th Name
+      %th City
+      %th State
+      %th Phone Number
+      %th Web Site
+  %tbody
+    - @companies.each do |company|
+      %tr
+        %td= link_to company.name, company_path(company.slug)
+        %td= company.city
+        %td= company.state
+        %td= company.phone_number
+        %td= link_to company.web_address, company.web_address
+
+#info.last
+  %span.dashboard_button
+    = link_to 'Create Company', new_company_path, :class => 'btn btn-green'
