@@ -1,0 +1,25 @@
+- title 'Users'
+
+%table#userlist.no-style.full
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Company
+      %th Tickets
+      %th Role
+      %th Last Login
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.full_name, user
+        %td= user.email
+        %td= user.company.name
+        %td
+          = user.tickets.totals('open')
+          Open
+          %br/
+          = user.tickets.totals('customer-reply')
+          Customer reply
+        %td ROLE
+        %td= user.last_sign_in_at.strftime("%A %b %e, %Y at %l:%M%p ")

@@ -11,6 +11,7 @@ class User
   
   field :full_name
   field :username
+  field :company_id
 
   slug :full_name, :as => :name
   
@@ -18,9 +19,10 @@ class User
   
   attr_accessor :login 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :full_name, :username, :login, :email, :password, :password_confirmation, :remember_me
+  # attr_accessible :full_name, :username, :login, :email, :password, :password_confirmation, :remember_me
   
   references_many :tickets
+  belongs_to :company
   
   def find_ticket(number)
     tickets.where(:number => number).first

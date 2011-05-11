@@ -1,2 +1,20 @@
+- title @user.full_name
 %p
-  User: #{@user.full_name}
+  %strong
+    = @user.full_name
+  %br/
+  = @user.email
+  %br/
+  %br/
+  %strong Last Seen:
+  %br/
+  = @user.last_sign_in_at.strftime("%A %b %e, %Y at %l:%M%p ")
+  %br/
+  %br/
+  %strong Tickets:
+  %table#ticketlist.no-style.full
+    - @user.tickets.each do |ticket|
+      %tr
+        %td= link_to ticket.number, show_ticket_path(ticket.number)
+        %td= ticket.subject
+        %td= ticket.status.humanize

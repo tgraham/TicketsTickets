@@ -26,6 +26,11 @@
     %i (we need your current password to confirm your changes)
     %br/
     = f.password_field :current_password
+  %p
+    = f.label :company
+    %br/
+    = f.select :company_id, Company.all.map {|c| [c.name, c.id]}, :include_blank => true
+    
   %p= f.submit "Update", :class => 'btn'
 %h3 Cancel my account
 %p

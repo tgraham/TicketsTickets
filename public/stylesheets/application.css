@@ -600,6 +600,11 @@ fieldset small {
 	-moz-opacity: 0;
 }
 
+.right {
+  position: relative;
+  float: right;
+}
+
 /* Corner radius
 ---------------------------------------------------------------------*/
 

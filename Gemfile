@@ -13,6 +13,8 @@ gem 'kaminari'
 gem 'cancan'
 gem 'carrierwave'
 gem 'haml'
+gem 'geocoder'
+gem 'bhm-google-maps'
 
 group :development do
   gem 'nifty-generators'

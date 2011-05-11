@@ -1,27 +1,55 @@
 - title 'Company'
+= javascript 'gmaps'
 
-.column.width8.first
-  %br/
-  #info
-    %span.company-name
-      %strong
-        = @company.name
-  #info
-    %span
-      = @company.address
+.column.width4.first
+  .column.width2.first
+    %br/
+    #info
+      %span.company-name
+        %strong
+          = @company.name
+    #info
+      %span
+        = @company.address
+        %br/
+        = @company.city + ', ' + @company.state + '  ' + @company.zip_code
+        %br/
+        = @company.country
+        %br/
+        %br/
+    #info
+      %span
+        = @company.phone_number
+        %br/
+        = link_to @company.web_address, @company.web_address
+        %br/
+        %br/
+      
+  .column.width2
+    %br/
+    #info
+      %span
+        %strong Users in this company
+        - @company.users.each do |user|
+          %br/
+          %span= link_to user.full_name, user
+  
+  .column.width4.first
+    #info
+      .column.width2.first
+        = link_to 'Edit Company', edit_company_path, :class => 'btn btn-green'
+      .column.width2
+        = link_to 'Add Users', 'javascript:void(0);', :class => 'btn'
+    #info.last
       %br/
-      = @company.city + ', ' + @company.state + '  ' + @company.zip_code
       %br/
-      = @company.country
-      %br/
-      %br/
-  #info
-    %span
-      = @company.phone_number
-      %br/
-      = @company.web_address
-      %br/
-      %br/
+      %h4 Add Notes
+      = form_for @company do |f|
+        = f.text_area :notes, :class => 'medium full'
+        %br/
+        = f.submit 'Submit', :class => 'btn'
+      
+.column.width4
   #info.last
-    %span
-      = link_to 'Edit Company', edit_company_path, :class => 'btn btn-green'
+    = draw_map_of(Location.new(@company.name, @company.lat, @company.lng), 
+        :marker => {:title => @company.name}, :static_map_html => {:width => '100%'})
