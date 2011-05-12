@@ -10,6 +10,7 @@ class CompaniesController < ApplicationController
   
   def show
     @company = Company.where(:slug => params[:id]).first
+    @users = User.all
   end
   
   def new

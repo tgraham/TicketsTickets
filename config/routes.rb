@@ -26,6 +26,9 @@ TicketsTickets::Application.routes.draw do
         end
       end
     end
+    collection do
+      put :company, :action => :add_to_company
+    end
   end
   
   # Tickets routes

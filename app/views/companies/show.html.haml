@@ -1,4 +1,4 @@
-- title 'Company'
+- title @company.name
 = javascript 'gmaps'
 
 .column.width4.first
@@ -34,12 +34,22 @@
           %br/
           %span= link_to user.full_name, user
   
+  #add_users.hidden
+    = form_tag company_users_path, :method => :put do
+      = hidden_field_tag :company, @company.id
+      - for user in @users
+        %strong
+          = check_box_tag "user_ids[]", user.id
+          = user.full_name
+          %br/
+      = submit_tag 'Add to Company', :class => 'btn'
+    
   .column.width4.first
     #info
       .column.width2.first
         = link_to 'Edit Company', edit_company_path, :class => 'btn btn-green'
       .column.width2
-        = link_to 'Add Users', 'javascript:void(0);', :class => 'btn'
+        = link_to 'Add Users', '#add_users', :class => 'btn nyroModal'
     #info.last
       %br/
       %br/

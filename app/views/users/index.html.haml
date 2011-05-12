@@ -14,12 +14,18 @@
       %tr
         %td= link_to user.full_name, user
         %td= user.email
-        %td= user.company.name
         %td
-          = user.tickets.totals('open')
-          Open
-          %br/
-          = user.tickets.totals('customer-reply')
-          Customer reply
+          - if user.company.try(:name)
+            = user.company.name
+          - else
+            = link_to 'Add to Company', 'javascript:void(0)'
+        %td
+          - if user.tickets.totals('open') > 0
+            = user.tickets.totals('open')
+            Open
+            %br/
+          - if user.tickets.totals('customer-reply') > 0
+            = user.tickets.totals('customer-reply')
+            Customer reply
         %td ROLE
         %td= user.last_sign_in_at.strftime("%A %b %e, %Y at %l:%M%p ")
