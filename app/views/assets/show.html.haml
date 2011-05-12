@@ -1,44 +1,80 @@
 - title 'Asset'
-
-.column.width8.first
-  %br/
-  .column.width1.first
-    %strong
-      = @asset.name
-  .column.width1
+#asset_info
+  %h3
+    = @asset.name
+    |
     = @asset.classification
-  .column.width1
-    = @asset.warranty
-  .column.width1    
-    = link_to @asset.company.name, @asset.company
-  .column.width1
-    = link_to @asset.user.full_name, @asset.user
-  .column.width1
-    = @asset.os
   %br/
-  %br/
-  
-.column.width8.first
-  .column.width2.first
-    %strong Location:
-    = @asset.location
-  .column.width2
-    %strong IP:
-    = @asset.ip
-  .column.width2
-    %strong User Name:
-    = @asset.user_name
-  .column.width2
-    %strong Password:
-    = @asset.user_password
-  %br/
-  %br/
-    
-.column.width8.first
-  %br/
-  %strong Description:
+  %h4
+    %strong Description
   = simple_format(@asset.description)
+  
+%section.column.width8.first
+  %fieldset
+    %legend Primary Information
+    %table#pri_info.no-style.full{:style => ""}
+      %thead
+        %tr
+          %th
+            %b Warranty
+          %th
+            %b Company
+          %th
+            %b Created By
+          %th
+            %b Filed On
+          %th
+            %b Last Updated
+
+      %tbody
+        %tr
+          %td= @asset.warranty
+          %td= link_to @asset.company.name, @asset.company
+          %td= link_to @asset.user.full_name, @asset.user
+          %td= @asset.created_at.strftime("%A %b %e, %Y at %l:%M%p ")
+          %td= @asset.updated_at.strftime("%A %b %e, %Y at %l:%M%p ")
+
+          
   %br/
+  %br/
+  %fieldset
+    %legend System Information
+    %table#pri_info.no-style.full{:style => ""}
+      %thead
+        %tr
+          %th
+            %b Operating System
+          %th
+            %b Location
+          %th
+            %b IP
+          %th
+            %b Firmware
+          %th
+            %b Serial Number
+          %th
+            %b Asset Tag
+          %th
+            %b Part Number
+          %th
+            %b Login Info
+      %tbody
+        %tr
+          %td= @asset.os
+          %td= @asset.location
+          %td= @asset.ip
+          %td= @asset.firmware
+          %td= @asset.serial_number
+          %td= @asset.asset_tag
+          %td= @asset.part_number
+          %td
+            %label 
+              Username
+            = @asset.user_name
+            %br/
+            %label 
+              Password
+            = @asset.user_password
   
 .column.width8.first.last
   = link_to 'Edit Asset', edit_asset_path, :class => 'btn btn-green'

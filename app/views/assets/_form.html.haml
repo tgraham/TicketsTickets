@@ -72,5 +72,7 @@
     %br/
     = f.text_field :user_password
 
-  %p= f.submit "Submit", :class => 'btn btn-green big'
+  %p
+    = f.submit "Submit", :class => 'btn btn-green big'
+    = link_to "Cancel", :back, :class => 'btn btn-red big'
 %br/
