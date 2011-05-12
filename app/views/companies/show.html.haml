@@ -42,7 +42,11 @@
           = check_box_tag "user_ids[]", user.id
           = user.full_name
           %br/
-      = submit_tag 'Add to Company', :class => 'btn'
+          %br/
+      - if @users.count > 0
+        = submit_tag 'Add to Company', :class => 'btn'
+      - else
+        %h3 Sorry, no more users to add.
     
   .column.width4.first
     #info
