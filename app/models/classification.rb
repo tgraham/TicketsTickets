@@ -1,13 +1,13 @@
 class Classification
   NAMES = [
-    ["Laptop"],
-    ["Desktop"],
     ["Server"],
+    ["Desktop"],
+    ["Laptop"],
+    ["Cell Phone"],
     ["Printer"],
     ["Switch"],
     ["Router"],
     ["Firewall"],
-    ["Phone/PDA"],
     ["ISP Equipment"],
     ["Other"]
   ]

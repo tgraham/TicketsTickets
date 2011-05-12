@@ -51,31 +51,32 @@
     .column.width3
       %h4
         Assets:
-        %a{:href => "#"} 1
+        = link_to @user.assets.count, assets_path
       %hr/
       %table.no-style.full
         %tbody
           %tr
             %td Servers
             %td.ta-right
-              %a{:href => "#"} 1
+              = link_to @user.assets.totals('Server'), assets_classification_path('Server')
           %tr
             %td Desktops
             %td.ta-right
-              %a{:href => "#"} 9
+              = link_to @user.assets.totals('Desktop'), assets_classification_path('Desktop')
           %tr
             %td Laptops
             %td.ta-right
-              %a{:href => "#"} 5
+              = link_to @user.assets.totals('Laptop'), assets_classification_path('Laptop')
           %tr
-            %td Misc.
+            %td Cell Phones
             %td.ta-right
-              %a{:href => "#"} 9
+              = link_to @user.assets.totals('Cell Phone'), assets_classification_path('Cell Phone')
           %tr
-            %td &nbsp;
-            %td &nbsp;
+            %td Printers
+            %td.ta-right
+              = link_to @user.assets.totals('Printer'), assets_classification_path('Printer')
       %span.dashboard_button
-        = link_to 'Create Asset', 'javascript:void(0)', :class => 'btn btn-green'
+        = link_to 'Create Asset', new_asset_path, :class => 'btn btn-green'
   .colgroup.leading
     .column.width3.first
       %h4 Ticket Stats

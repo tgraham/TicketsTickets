@@ -22,6 +22,7 @@ class User
   # attr_accessible :full_name, :username, :login, :email, :password, :password_confirmation, :remember_me
   
   references_many :tickets
+  has_many :assets
   belongs_to :company
   
   def find_ticket(number)

@@ -33,4 +33,10 @@ class Asset
   belongs_to :company
   
   slug :name
+  
+  class << self
+    def totals(classification)
+      where(:classification => classification).count
+    end
+  end
 end

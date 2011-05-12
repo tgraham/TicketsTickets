@@ -5,7 +5,11 @@ class AssetsController < ApplicationController
   before_filter :set_current_user
   
   def index
-    @assets = Asset.all
+    if params[:classification]
+      @assets = Asset.where(:classification => params[:classification])
+    else
+      @assets = Asset.all
+    end
   end
   
   def show

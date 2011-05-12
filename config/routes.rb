@@ -11,8 +11,13 @@ TicketsTickets::Application.routes.draw do
   match '/dashboard' => 'dashboards#dashboard'
   
   resources :companies
+  
+  # Assets routes
   resources :assets
   
+  match '/assets/classification/:classification' => 'assets#index', :as => :assets_classification
+  
+  # Users routes
   resources :users do
     resources :tickets do
       resources :replies do
