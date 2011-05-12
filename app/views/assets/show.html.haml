@@ -1,0 +1,44 @@
+- title 'Asset'
+
+.column.width8.first
+  %br/
+  .column.width1.first
+    %strong
+      = @asset.name
+  .column.width1
+    = @asset.classification
+  .column.width1
+    = @asset.warranty
+  .column.width1    
+    = link_to @asset.company.name, @asset.company
+  .column.width1
+    = link_to @asset.user.full_name, @asset.user
+  .column.width1
+    = @asset.os
+  %br/
+  %br/
+  
+.column.width8.first
+  .column.width2.first
+    %strong Location:
+    = @asset.location
+  .column.width2
+    %strong IP:
+    = @asset.ip
+  .column.width2
+    %strong User Name:
+    = @asset.user_name
+  .column.width2
+    %strong Password:
+    = @asset.user_password
+  %br/
+  %br/
+    
+.column.width8.first
+  %br/
+  %strong Description:
+  = simple_format(@asset.description)
+  %br/
+  
+.column.width8.first.last
+  = link_to 'Edit Asset', edit_asset_path, :class => 'btn btn-green'

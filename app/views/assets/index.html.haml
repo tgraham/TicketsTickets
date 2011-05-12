@@ -1,0 +1,27 @@
+- title 'Assets'
+
+%table#cassetlist.no-style.full
+  %thead
+    %tr
+      %th Name
+      %th Location
+      %th Classification
+      %th Asset Tag
+      %th IP
+      %th User
+      %th Company
+  %tbody
+    - @assets.each do |asset|
+      %tr
+        %td= link_to asset.name, asset_path(asset.slug)
+        %td= asset.location
+        %td= asset.classification
+        %td= asset.asset_tag
+        %td= asset.ip
+        %td= asset.user.full_name
+        %td= asset.company.name
+#info.last
+  %span.dashboard_button
+    = link_to 'Create Asset', new_asset_path, :class => 'btn btn-green'
+    
+#info

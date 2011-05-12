@@ -21,7 +21,7 @@ class Company
   index :slug, :name
   
   has_many :users
-  references_many :assets
+  has_many :assets
   
   before_create :url_with_protocol
   before_update :url_with_protocol
