@@ -7,6 +7,7 @@ class TicketsController < ApplicationController
   def index
     if params[:status]
       @tickets = Ticket.where(:status => params[:status])
+      @status = params[:status].humanize
     else
       @tickets = Ticket.all
     end

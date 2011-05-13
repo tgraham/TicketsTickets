@@ -8,6 +8,7 @@ class AssetsController < ApplicationController
   def index
     if params[:classification]
       @assets = Asset.where(:classification => params[:classification])
+      @classification = params[:classification].humanize.singularize
     else
       @assets = Asset.all
     end
