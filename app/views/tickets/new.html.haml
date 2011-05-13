@@ -15,5 +15,7 @@
       = f.label :priority
       %br/
       = f.select :priority, Ticket::PRIORITY
-    %p= f.submit "Submit", :class => 'btn btn-green big'
+    %p
+      = f.submit "Submit", :class => 'btn'
+      = submit_tag "Cancel", :class => 'btn'
   %br/

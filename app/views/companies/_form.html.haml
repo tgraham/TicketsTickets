@@ -32,5 +32,8 @@
     %br/
     = f.text_field :web_address, :class => 'half'
     
-  %p= f.submit "Submit", :class => 'btn btn-green big'
+  %p
+    = f.submit :class => 'btn'
+    = submit_tag "Cancel", :class => 'btn' do
+      = content_tag :span,"&nbsp;", :class => 'icon icon-cancel'
 %br/

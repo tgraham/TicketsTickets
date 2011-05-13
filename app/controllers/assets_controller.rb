@@ -3,6 +3,7 @@ class AssetsController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :set_current_user
+  before_filter :check_for_cancel, :only => [:create, :update]
   
   def index
     if params[:classification]
@@ -22,6 +23,7 @@ class AssetsController < ApplicationController
   
   def create
     @asset = Asset.new(params[:asset])
+    @asset.created_by = current_user.id
     if @asset.save
       redirect_to assets_path, :notice => 'Asset created.'
     else
@@ -35,6 +37,7 @@ class AssetsController < ApplicationController
   
   def update
     @asset = Asset.where(:slug => params[:id]).first
+    @asset.updated_by = current_user.id
     if @asset.update_attributes(params[:asset])
       redirect_to assets_path, :notice => "#{@asset.name} has been updated." and return
     else
@@ -44,4 +47,13 @@ class AssetsController < ApplicationController
   
   def destroy
   end
+  
+  private
+
+  def check_for_cancel
+    if params[:commit] == "Cancel"
+      redirect_to assets_path, :notice => "You have canceled your request."
+    end
+  end
+
 end

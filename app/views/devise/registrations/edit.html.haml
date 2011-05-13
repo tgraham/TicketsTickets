@@ -31,7 +31,9 @@
     %br/
     = f.select :company_id, Company.all.map {|c| [c.name, c.id]}, :include_blank => true
     
-  %p= f.submit "Update", :class => 'btn'
+  %p
+    = f.submit "Update", :class => 'btn'
+    = submit_tag "Cancel", :class => 'btn'
 %h3 Cancel my account
 %p
   Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}.

@@ -19,7 +19,9 @@
 
 #info.last
   %span.dashboard_button
-    = link_to 'Create Company', new_company_path, :class => 'btn btn-green'
+    = link_to new_company_path, :class => 'btn' do
+      = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+      Create Company
     
 #info
   

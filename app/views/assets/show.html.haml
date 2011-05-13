@@ -1,10 +1,7 @@
-- title 'Asset'
+- title @asset.name + " - " + @asset.classification 
 #asset_info
-  %h3
-    = @asset.name
-    |
-    = @asset.classification
-  %br/
+  %strong Assigned To: 
+  = @asset.user.full_name
   %h4
     %strong Description
   = simple_format(@asset.description)
@@ -20,9 +17,9 @@
           %th
             %b Company
           %th
-            %b Created By
+            %b Added By
           %th
-            %b Filed On
+            %b Added On
           %th
             %b Last Updated
 
@@ -30,11 +27,13 @@
         %tr
           %td= @asset.warranty
           %td= link_to @asset.company.name, @asset.company
-          %td= link_to @asset.user.full_name, @asset.user
+          %td= @asset.create_user
           %td= @asset.created_at.strftime("%A %b %e, %Y at %l:%M%p ")
-          %td= @asset.updated_at.strftime("%A %b %e, %Y at %l:%M%p ")
-
-          
+          %td
+            = @asset.updated_at.strftime("%A %b %e, %Y at %l:%M%p ")
+            %br
+            Updated By
+            = @asset.update_user
   %br/
   %br/
   %fieldset
@@ -77,4 +76,9 @@
             = @asset.user_password
   
 .column.width8.first.last
-  = link_to 'Edit Asset', edit_asset_path, :class => 'btn btn-green'
+  = link_to edit_asset_path, :class => 'btn' do
+    = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+    Edit Asset
+  = link_to :back, :class => 'btn' do
+    = content_tag :span,"&nbsp;", :class => 'icon icon-cancel'
+    Go Back

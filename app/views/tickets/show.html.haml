@@ -1,4 +1,4 @@
-- title "Ticket"
+- title @ticket.subject + ' - ' + @ticket.number.to_s
 
 .column.width8.first
   %br/
@@ -22,7 +22,7 @@
   #info
     = simple_format(@ticket.description)
   %br/
-  = link_to 'Edit Ticket', edit_ticket_path, :class => 'btn btn-green'
+  = link_to 'Edit Ticket', edit_ticket_path, :class => 'btn'
   %h3 Replies
   #info
     - @ticket.replies.each do |r|
@@ -47,4 +47,4 @@
         = f.text_area :comment, :class => 'medium full'
         %br/
       %span.message
-      %p= f.submit 'Submit', :class => 'btn btn-green'
+      %p= f.submit 'Submit', :class => 'btn'

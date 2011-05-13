@@ -28,11 +28,4 @@ class User
   def find_ticket(number)
     tickets.where(:number => number).first
   end
-
-protected
-  
-  def self.find_for_database_authentication(conditions)
-    login = conditions.delete(:login)
-    self.any_of({ :username => login }, { :email => login }).first
-  end
 end

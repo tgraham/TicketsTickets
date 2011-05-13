@@ -21,6 +21,8 @@ class Asset
   field :user_id
   field :user_name
   field :user_password
+  field :updated_by
+  field :created_by
   
   index :classification
   index :os
@@ -33,6 +35,15 @@ class Asset
   belongs_to :company
   
   slug :name
+  
+  def create_user
+    User.find(self.created_by).full_name
+  end
+    
+  def update_user
+    return unless !self.updated_by.nil?
+    User.find(self.updated_by).full_name
+  end
   
   class << self
     def totals(classification)

@@ -51,7 +51,9 @@
   .column.width4.first
     #info
       .column.width2.first
-        = link_to 'Edit Company', edit_company_path, :class => 'btn btn-green'
+        = link_to edit_company_path, :class => 'btn' do
+          = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+          Edit Company
       .column.width2
         = link_to 'Add Users', '#add_users', :class => 'btn nyroModal'
     #info.last

@@ -28,5 +28,7 @@
       = f.label :assigned_to, 'Assign Tech'
       %br/
       = f.collection_select :assigned_to, User.all, :id, :full_name, :include_blank => true
-    %p= f.submit "Submit", :class => 'btn btn-green big'
+    %p
+      = f.submit "Submit", :class => 'btn'
+      = submit_tag "Cancel", :class => 'btn'
   %br/

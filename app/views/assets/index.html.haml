@@ -22,6 +22,8 @@
         %td= asset.company.name
 #info.last
   %span.dashboard_button
-    = link_to 'Create Asset', new_asset_path, :class => 'btn btn-green'
+    = link_to new_asset_path, :class => 'btn' do
+      = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+      Create Asset
     
 #info
