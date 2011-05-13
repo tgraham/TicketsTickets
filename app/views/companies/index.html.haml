@@ -8,6 +8,7 @@
       %th State
       %th Phone Number
       %th Web Site
+      %th
   %tbody
     - @companies.each do |company|
       %tr
@@ -16,6 +17,7 @@
         %td= company.state
         %td= company.phone_number
         %td= link_to company.web_address, company.web_address
+        %td= link_to image_tag('/images/delete.png'), company, :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
 
 #info.last
   %span.dashboard_button

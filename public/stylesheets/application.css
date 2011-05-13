@@ -1054,6 +1054,20 @@ a:focus>.sf-sub-indicator,a:hover>.sf-sub-indicator,a:active>.sf-sub-indicator,l
 	text-decoration:none;
 	border-bottom:1px solid #A1CFD4;
 }
+
+#page a.delete {
+  border-bottom: none;
+}
+
+#page a.delete:hover, #page a.delete:focus {
+  border-bottom: none;
+  background-color: transparent;
+}
+
+#page a.delete img {
+  vertical-align: bottom;
+}
+
 #page a:hover, #page a:focus, #page a:active {
 	background-color:#E2EFFF;
 	border-bottom:1px solid #329ECC;

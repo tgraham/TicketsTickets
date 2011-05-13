@@ -30,11 +30,9 @@
     / Header
     %header#top
       .wrapper
-        / Title/Logo - can use text instead of image
+        / Title/Logo
         #title
           = link_to(image_tag('/images/logo.png'), root_path)
-          / %img{:alt => "TicketsTickets", :src => "/images/logo.png"}/
-          / <span>Administry</span> demo
         / Main navigation
         / Top navigation
         - if current_user
@@ -44,12 +42,6 @@
             Logged in as
             %b
               = current_user.full_name
-            / %span
-            /               |
-            /             = link_to 'Settings', edit_user_registration_path
-            /             %span
-            /               |
-            /             = link_to 'Logout', logout_path
             %br/
             %small
               You have
@@ -65,15 +57,6 @@
         %nav.right
           %ul.sf-menu
             = render 'devise/menu/login_items'
-        / End of Main navigation
-        / Aside links
-        / %aside
-        /           %b English
-        /           \·
-        /           %a{:href => "#"} Spanish
-        /           \·
-        /           %a{:href => "#"} German
-        / End of Aside links
     / End of Header
     / Page title
     - if !current_user

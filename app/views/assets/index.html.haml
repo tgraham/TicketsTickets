@@ -10,6 +10,7 @@
       %th IP
       %th User
       %th Company
+      %th
   %tbody
     - @assets.each do |asset|
       %tr
@@ -20,6 +21,7 @@
         %td= asset.ip
         %td= asset.user.full_name
         %td= asset.company.name
+        %td= link_to image_tag('/images/delete.png'), asset, :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
 #info.last
   %span.dashboard_button
     = link_to new_asset_path, :class => 'btn' do
