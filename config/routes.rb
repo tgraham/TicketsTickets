@@ -12,6 +12,8 @@ TicketsTickets::Application.routes.draw do
   
   resources :companies
   
+  resources :tasks
+  
   # Assets routes
   resources :assets
   

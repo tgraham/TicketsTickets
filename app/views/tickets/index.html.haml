@@ -18,5 +18,11 @@
         %td= ticket.user.full_name
         %td= ticket.priority
         %td= ticket.status.humanize
+
+#info.last
+  %span.dashboard_button
+    = link_to new_ticket_path, :class => 'btn' do
+      = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+      Create Ticket
 -# = paginate @tickets
 

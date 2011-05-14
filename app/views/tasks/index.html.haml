@@ -1,0 +1,29 @@
+- title 'Tasks'
+
+%table#tasklist.no-style.full
+  %thead
+    %tr
+      %th Name
+      %th Assigned To
+      %th Due At
+      %th Start Time
+      %th Finish Time
+      %th Start Mileage
+      %th Finish Mileage
+
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= link_to task.name, task
+        %td= task.user.full_name
+        %td= task.due_at
+        %td= task.try(:start_time)
+        %td= task.try(:finish_time)
+        %td= task.try(:start_mileage)
+        %td= task.try(:finish_mileage)
+
+#info.last
+  %span.dashboard_button
+    = link_to new_task_path, :class => 'btn' do
+      = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+      Create Task
