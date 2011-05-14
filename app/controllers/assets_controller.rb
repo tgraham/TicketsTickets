@@ -8,7 +8,7 @@ class AssetsController < ApplicationController
   def index
     if params[:classification]
       @assets = Asset.where(:classification => params[:classification])
-      @classification = params[:classification].humanize.singularize
+      @classification = params[:classification].humanize
     else
       @assets = Asset.all
     end
@@ -47,6 +47,12 @@ class AssetsController < ApplicationController
   end
   
   def destroy
+    @asset = Asset.where(:slug => params[:id]).first
+    if @asset.destroy
+      redirect_to assets_path, :notice => "#{@asset.name} has been removed."
+    else
+      redirect_to :back, :notice => "Something went wrong, try again."
+    end
   end
   
   private

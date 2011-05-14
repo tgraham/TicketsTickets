@@ -1,7 +1,7 @@
 - title @asset.name + " - " + @asset.classification 
 #asset_info
   %strong Assigned To: 
-  = @asset.user.full_name
+  = @asset.user.full_name unless @asset.user.blank?
   %h4
     %strong Description
   = simple_format(@asset.description)
@@ -26,7 +26,7 @@
       %tbody
         %tr
           %td= @asset.warranty
-          %td= link_to @asset.company.name, @asset.company
+          %td= link_to @asset.company.name, @asset.company unless @asset.company.blank?
           %td= @asset.create_user
           %td= @asset.created_at.strftime("%A %b %e, %Y at %l:%M%p ")
           %td

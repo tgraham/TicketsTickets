@@ -16,8 +16,8 @@
 
     / jQuery with plugins
     = javascript_include_tag 'jquery.min', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.tabs.min', 'jquery.tipTip.min'
-    = javascript_include_tag 'jquery.superfish.min', 'flot/jquery.flot.min'
-    = javascript_include_tag 'jquery.supersubs.min', 'jquery.validate_pack', 'jquery.nyroModal.pack','swfobject', 'application'
+    = javascript_include_tag 'jquery.superfish.min', 'flot/jquery.flot.min', 'jquery.supersubs.min', 'jquery.validate_pack'
+    = javascript_include_tag 'jquery.nyroModal.pack','swfobject', 'rails', 'application'
     
     / Internet Explorer Fixes
     /[if IE]
@@ -26,6 +26,8 @@
     / Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js
     /[if lt IE 8]
       <script src="/javascripts/IE8.js"></script>
+    = csrf_meta_tag
+    
   %body
     / Header
     %header#top

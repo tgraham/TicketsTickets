@@ -19,8 +19,8 @@
         %td= asset.classification
         %td= asset.asset_tag
         %td= asset.ip
-        %td= asset.user.full_name
-        %td= asset.company.name
+        %td= asset.user.full_name unless asset.user.blank?
+        %td= asset.company.name unless asset.company.blank?
         %td= link_to image_tag('/images/delete.png'), asset, :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
 #info.last
   %span.dashboard_button

@@ -42,5 +42,11 @@ class CompaniesController < ApplicationController
   end
   
   def destroy
+    @company = Company.where(:slug => params[:id]).first
+    if @company.destroy
+      redirect_to companies_path, :notice => "#{@company.name} has been removed."
+    else
+      redirect_to :back, :notice => "Something went wrong, try again."
+    end
   end
 end

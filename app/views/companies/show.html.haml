@@ -12,7 +12,9 @@
       %span
         = @company.address
         %br/
-        = @company.city + ', ' + @company.state + '  ' + @company.zip_code
+        - unless @company.city.blank?
+          = @company.city + ', ' 
+        = @company.state + '  ' + @company.zip_code
         %br/
         = @company.country
         %br/
@@ -67,5 +69,6 @@
       
 .column.width4
   #info.last
-    = draw_map_of(Location.new(@company.name, @company.lat, @company.lng), 
-        :marker => {:title => @company.name}, :static_map_html => {:width => '100%'})
+    - unless !@company.address.nil?
+      = draw_map_of(Location.new(@company.name, @company.lat, @company.lng), 
+          :marker => {:title => @company.name}, :static_map_html => {:width => '100%'})
