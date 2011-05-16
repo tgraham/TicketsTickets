@@ -5,9 +5,9 @@ class Task
   
   field :name
   field :user_id
-  field :due_at,            :type => DateTime
-  field :start_time,        :type => DateTime
-  field :finish_time,       :type => DateTime
+  field :due_at,            :type => Date
+  field :start_time,        :type => Time
+  field :finish_time,       :type => Time
   field :start_mileage,     :type => Integer
   field :finish_mileage,    :type => Integer
   field :private,           :type => Boolean,         :default => false
