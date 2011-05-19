@@ -16,9 +16,9 @@
       %tr
         %td= link_to task.name, task
         %td= task.user.full_name
-        %td= task.due_at
-        %td= task.try(:start_time)
-        %td= task.try(:finish_time)
+        %td= task.due_at.strftime("%A %b %e, %Y")
+        %td= clean_time(task.start_time)
+        %td= clean_time(task.finish_time)
         %td= task.try(:start_mileage)
         %td= task.try(:finish_mileage)
 

@@ -1,1 +1,26 @@
 - title @task.name
+.column.width8.first
+  %br/
+  #info
+    %span.ticket-title
+      %strong
+        = "  Assigned To: #{@task.user.full_name}" unless @task.user.nil?
+        = "  |  Due: #{@task.due_at.strftime("%A %b %e, %Y")}"
+        %br/
+      %strong
+        = "Start Time: #{clean_time(@task.start_time)}"
+        %br/
+        = "Finish Time: #{clean_time(@task.finish_time)}"
+        %br/
+        %br/
+        = "Total Time: #{@task.total_time}"
+        %br/
+        %br/
+        = "Mileage Start: #{@task.start_mileage}"
+        %br/
+        = "Mileage Finish: #{@task.finish_mileage}"
+        %br/
+        %br/
+        = "Total Mileage: #{@task.mileage}"
+  %br/
+  = link_to 'Edit Task', edit_task_path, :class => 'btn'
