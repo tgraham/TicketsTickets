@@ -7,13 +7,13 @@
         = "  Assigned To: #{@task.user.full_name}" unless @task.user.nil?
         = "  |  Due: #{@task.due_at.strftime("%A %b %e, %Y")}"
         %br/
-      %strong
+        %br/
         = "Start Time: #{clean_time(@task.start_time)}"
         %br/
         = "Finish Time: #{clean_time(@task.finish_time)}"
         %br/
         %br/
-        = "Total Time: #{@task.total_time}"
+        = "Total Time: #{total_time(@task)}"
         %br/
         %br/
         = "Mileage Start: #{@task.start_mileage}"
@@ -23,4 +23,9 @@
         %br/
         = "Total Mileage: #{@task.mileage}"
   %br/
-  = link_to 'Edit Task', edit_task_path, :class => 'btn'
+  = link_to edit_task_path, :class => 'btn' do
+    = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+    Edit Task
+  = link_to :back, :class => 'btn' do
+    = content_tag :span,"&nbsp;", :class => 'icon icon-cancel'
+    Go Back
