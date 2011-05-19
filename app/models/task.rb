@@ -1,13 +1,14 @@
 class Task
   include Mongoid::Document
+  include Mongoid::MultiParameterAttributes
   include Mongoid::Timestamps
   include Mongoid::Slug
   
   field :name
   field :user_id
-  field :due_at,            :type => DateTime
-  field :start_time,        :type => DateTime
-  field :finish_time,       :type => DateTime
+  field :due_at,            :type => Date
+  field :start_time,        :type => Time
+  field :finish_time,       :type => Time
   field :start_mileage,     :type => Integer
   field :finish_mileage,    :type => Integer
   field :private,           :type => Boolean,         :default => false
@@ -24,8 +25,9 @@ class Task
   scope :private,  where(:private => true)
   
   def total_time
-    return unless self.finish_time && self.start_time
-    self.finish_time - self.start_time
+    return unless self.start_time && self.finish_time
+    distance_of_time_in_words(start_time, finish_time)
+    # self.start_time - self.finish_time
   end
   
   def mileage
