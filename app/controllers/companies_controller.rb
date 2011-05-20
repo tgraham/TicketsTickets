@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
   
   def show
     @company = Company.where(:slug => params[:id]).first
-    @json = Company.where(:slug => params[:id]).first.to_gmaps4rails
+    @json = @company.locations.where(:slug => params[:name]).first.to_gmaps4rails
     @all_users = User.all
     @company_users = @company.users
     @users = @all_users - @company_users
@@ -18,6 +18,7 @@ class CompaniesController < ApplicationController
   
   def new
     @company = Company.new
+    @company.locations.build
   end
   
   def create

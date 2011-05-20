@@ -11,7 +11,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'cancan'
 gem 'carrierwave'
-gem 'haml'
+gem 'haml-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
 

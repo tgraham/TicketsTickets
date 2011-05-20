@@ -10,7 +10,13 @@ TicketsTickets::Application.routes.draw do
 
   match '/dashboard' => 'dashboards#dashboard'
   
-  resources :companies
+  resources :companies do
+    resources :locations do
+      collection do
+        post :create, :action => :create_for_company
+      end
+    end
+  end
   
   resources :tasks
   

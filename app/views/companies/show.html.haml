@@ -1,4 +1,4 @@
-- title @company.name
+- title @company.company_name
 = javascript 'gmaps4rails'
 
 .column.width4.first
@@ -7,26 +7,61 @@
     #info
       %span.company-name
         %strong
-          = @company.name
+          = @company.locations.first.name
     #info
       %span
-        = @company.address
+        = @company.locations.first.address
         %br/
-        - unless @company.city.blank?
-          = @company.city + ', ' 
-        = @company.state + '  ' + @company.zip_code
+        - unless @company.locations.first.city.blank?
+          = @company.locations.first.city + ', ' 
+        = @company.locations.first.state + '  ' + @company.locations.first.zip_code
         %br/
-        = @company.country
+        = @company.locations.first.country
         %br/
         %br/
     #info
       %span
-        = @company.phone_number
+        = @company.locations.first.phone_number
         %br/
         = link_to @company.web_address, @company.web_address
         %br/
         %br/
-      
+  .column.width2
+    = link_to 'Add Location', '#add_location', :class => 'btn nyroModal'
+    #info
+      %span
+      #add_location.hidden
+        %strong Add Location
+        = form_for(Location.new, :url => company_locations_path(@company, @location)) do |f|
+          %p
+            = f.label :name, "Location Name", :class => 'required'
+            %br/
+            = f.text_field :name, :class => 'half'
+            %br/  
+          %p
+            = f.label :address
+            %br/
+            = f.text_field :address, :class => 'half'
+          %p
+            = f.label :city
+            %br/
+            = f.text_field :city
+          %p
+            = f.label :state
+            %br/
+            = f.select :state, State::NAMES, :include_blank => true
+          %p
+            = f.label :zip_code
+            %br/
+            = f.text_field :zip_code
+          %p
+            = f.label :country
+            %br/
+            = f.select :country, Country::NAMES, :include_blank => true
+          %p
+            = f.submit :class => 'btn'
+            = submit_tag "Cancel", :class => 'btn' do
+              = content_tag :span,"&nbsp;", :class => 'icon icon-cancel'          
   .column.width2
     %br/
     #info
@@ -69,7 +104,7 @@
       
 .column.width4
   #info.last
-    - unless @company.address.empty?
+    - unless @company.locations.first.address.empty?
       = gmaps4rails(@json)
       / = draw_map_of(Location.new(@company.name, @company.lat, @company.lng), 
       /     :marker => {:title => @company.name}, :static_map_html => {:width => '100%'})
