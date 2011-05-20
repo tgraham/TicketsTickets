@@ -13,7 +13,7 @@ gem 'cancan'
 gem 'carrierwave'
 gem 'haml'
 gem 'geocoder'
-gem 'bhm-google-maps'
+gem 'gmaps4rails'
 
 group :development do
   gem 'nifty-generators'

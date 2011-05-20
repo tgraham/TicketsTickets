@@ -11,6 +11,9 @@
     %link{:href => "/images/favicons/favicon.png", :rel => "shortcut icon", :type => "image/png"}/
     %link{:href => "/images/favicons/favicon.png", :rel => "icon", :type => "image/png"}/
     %link{:href => "/images/favicons/apple.png", :rel => "apple-touch-icon"}/
+    / Gmaps4rails
+    = yield :head
+    
     / Stylesheets
     = stylesheet_link_tag 'application', 'custom'
 
@@ -27,7 +30,6 @@
     /[if lt IE 8]
       <script src="/javascripts/IE8.js"></script>
     = csrf_meta_tag
-    
   %body
     / Header
     %header#top
@@ -109,3 +111,6 @@
         %li=link_to 'Tasks', tasks_path
     / User interface javascript load
     = javascript_include_tag 'administry'
+    
+    / Gmaps4rails
+    = yield :scripts

@@ -1,5 +1,5 @@
 - title @company.name
-= javascript 'gmaps'
+= javascript 'gmaps4rails'
 
 .column.width4.first
   .column.width2.first
@@ -69,6 +69,7 @@
       
 .column.width4
   #info.last
-    - unless !@company.address.nil?
-      = draw_map_of(Location.new(@company.name, @company.lat, @company.lng), 
-          :marker => {:title => @company.name}, :static_map_html => {:width => '100%'})
+    - unless @company.address.empty?
+      = gmaps4rails(@json)
+      / = draw_map_of(Location.new(@company.name, @company.lat, @company.lng), 
+      /     :marker => {:title => @company.name}, :static_map_html => {:width => '100%'})
