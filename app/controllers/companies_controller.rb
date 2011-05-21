@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :set_current_user
+  after_filter :verify_slug, :only => :create
   
   def index
     @companies = Company.all
@@ -46,9 +47,15 @@ class CompaniesController < ApplicationController
   def destroy
     @company = Company.where(:slug => params[:id]).first
     if @company.destroy
-      redirect_to companies_path, :notice => "#{@company.name} has been removed."
+      redirect_to companies_path, :notice => "#{@company.company_name} has been removed." and return
     else
       redirect_to :back, :notice => "Something went wrong, try again."
     end
+  end
+  
+  def verify_slug
+    @location = @company.locations.first
+    @location.slug = @location.name.underscore
+    @location.save!
   end
 end

@@ -15,6 +15,9 @@ TicketsTickets::Application.routes.draw do
       collection do
         post :create, :action => :create_for_company
       end
+      member do
+        delete :destroy, :action => :destroy_for_company
+      end
     end
   end
   

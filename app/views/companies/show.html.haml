@@ -9,6 +9,7 @@
         %span.company-name
           %strong
             = location.name
+            = link_to image_tag('/images/delete.png'), company_location_path(:company_id => @company.slug, :id => location.slug), :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
       #info
         %span
           = location.address

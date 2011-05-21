@@ -13,7 +13,7 @@ class Company
   
   has_many :users
   has_many :assets
-  embeds_many :locations
+  embeds_many :locations, :allow_destroy => true
   
   accepts_nested_attributes_for :locations
   
