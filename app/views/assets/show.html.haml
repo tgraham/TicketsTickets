@@ -26,7 +26,7 @@
       %tbody
         %tr
           %td= @asset.warranty
-          %td= link_to @asset.company.name, @asset.company unless @asset.company.blank?
+          %td= link_to @asset.company.company_name, @asset.company unless @asset.company.blank?
           %td= @asset.create_user
           %td= @asset.created_at.strftime("%A %b %e, %Y at %l:%M%p ")
           %td
