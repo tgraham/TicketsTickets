@@ -12,7 +12,7 @@ class User
   field :full_name
   field :username
   field :company_id
-  field :role,        :default => 'advisor'
+  field :role,        :default => 'user'
 
   slug :full_name, :as => :name
   
