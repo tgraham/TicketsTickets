@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
   before_filter :set_current_user
   
   def create_for_company
-    @company  = Company.where(:_id => params[:company_id]).first
+    @company  = Company.where(:slug => params[:company_id]).first
     @location = @company.locations.build(params[:location])
 
     if @location.save

@@ -39,12 +39,4 @@ class Location
   def gmaps4rails_title
     name
   end
-  
-  def lat
-    self.coordinates[1]
-  end
-  
-  def lng
-    self.coordinates[0]
-  end
 end

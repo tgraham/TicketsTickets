@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
   
   def show
     @company = Company.where(:slug => params[:id]).first
-    @json = @company.locations.where(:slug => params[:name]).first.to_gmaps4rails
+    @json = @company.locations.to_gmaps4rails
     @all_users = User.all
     @company_users = @company.users
     @users = @all_users - @company_users
@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.where(:slug => params[:id]).first
     if @company.update_attributes(params[:company])
-      redirect_to companies_path, :notice => "#{@company.name} has been updated." and return
+      redirect_to companies_path, :notice => "#{@company.company_name} has been updated." and return
     else
       redirect_to :back, :notice => "Something went wrong, try again."
     end
