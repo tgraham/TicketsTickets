@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
   def index
-    @users = User.all
+    redirect_to dashboard_path unless !current_user
   end
 end

@@ -12,6 +12,7 @@ class User
   field :full_name
   field :username
   field :company_id
+  field :role,        :default => 'advisor'
 
   slug :full_name, :as => :name
   
@@ -25,6 +26,12 @@ class User
   has_many :assets
   has_many :tasks
   belongs_to :company
+  
+  ROLES = %w[user tech supervisor admin]
+  
+  def role?(role)
+    self.role == role
+  end
   
   def find_ticket(number)
     tickets.where(:number => number).first

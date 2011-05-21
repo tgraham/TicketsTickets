@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  authorize_resource
+  
   respond_to :html
   
   before_filter :authenticate_user!
