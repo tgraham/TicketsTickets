@@ -1,4 +1,4 @@
-class TicketsController < ApplicationController
+class TicketsController < AuthorizedController
   respond_to :html
   
   before_filter :authenticate_user!
