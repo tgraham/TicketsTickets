@@ -27,5 +27,5 @@
           - if user.tickets.totals('customer-reply') > 0
             = user.tickets.totals('customer-reply')
             Customer reply
-        %td ROLE
+        %td= user.role.humanize
         %td= user.last_sign_in_at.strftime("%A %b %e, %Y at %l:%M%p ")

@@ -7,14 +7,14 @@ class Ability
     
     user ||= User.new # guest user account
      
-    if user.role? :admin
+    if user.role == 'admin'
       can :manage, :all
-    elsif user.role? :tech
+    elsif user.role == 'tech'
       can :manage, :all
-    elsif user.role? :supervisor
+    elsif user.role == 'supervisor'
       can :manage, :all
-    elsif user.role? :user
-      can :manage, :all
+    elsif user.role == 'user'
+      
     else
       # for non logged in users
       

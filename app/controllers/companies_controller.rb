@@ -1,9 +1,6 @@
-class CompaniesController < ApplicationController
-  authorize_resource
-  
+class CompaniesController < AuthorizedController
   respond_to :html
-  
-  before_filter :authenticate_user!
+
   before_filter :set_current_user
   after_filter :verify_slug, :only => :create
   
