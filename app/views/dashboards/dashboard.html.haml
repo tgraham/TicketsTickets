@@ -134,8 +134,10 @@
         %img{:alt => "", :height => "16", :src => "/images/key.png", :width => "16"}/
       %dd
         = link_to @user.email + ' (' + @user.full_name + ')', edit_user_registration_path
+      %dd
+        =! @user.company.nil? ? @user.company.company_name : "You do not belong to a Company."
       %dd.last
-        =! @user.company.nil? ? @user.company.company_name : "You do not belong to a Company"
+        =! @user.role.nil? ? @user.role : "No Role assigned."
       %dt
         %img{:alt => "", :height => "16", :src => "/images/help.png", :width => "16"}/
       %dd

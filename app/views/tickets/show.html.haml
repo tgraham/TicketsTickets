@@ -22,7 +22,8 @@
   #info
     = simple_format(@ticket.description)
   %br/
-  = link_to 'Edit Ticket', edit_ticket_path, :class => 'btn'
+  - if can? :update, Ticket
+    = link_to 'Edit Ticket', edit_ticket_path, :class => 'btn'
   %h3 Replies
   #info
     - @ticket.replies.each do |r|

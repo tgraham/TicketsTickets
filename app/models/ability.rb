@@ -10,7 +10,11 @@ class Ability
     if user.role == 'admin'
       can :manage, :all
     elsif user.role == 'tech'
-      can :manage, :all
+      # can :manage, :all
+      can :create, Ticket
+      can :update, Ticket do |ticket|
+        ticket.try(:user) == user
+      end
     elsif user.role == 'supervisor'
       can :manage, :all
     elsif user.role == 'user'
