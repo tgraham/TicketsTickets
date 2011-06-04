@@ -1,7 +1,6 @@
 - title 'New Ticket'
 %section.full
   = form_for @ticket do |f|
-  = f.error_messages
     %p
       = f.label :subject, 'Subject', :class => 'required'
       %br/
@@ -17,7 +16,7 @@
     %p
       = f.label :attachment
       %br/
-      = f.file_field :upload
+      = f.file_field :attachment
 
     %p
       = f.submit "Submit", :class => 'btn'

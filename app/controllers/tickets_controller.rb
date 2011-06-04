@@ -19,6 +19,7 @@ class TicketsController < AuthorizedController
   
   def create
     @ticket = @user.tickets.build(params[:ticket])
+    @ticket.uploads.build(params[:attachment])
     @ticket.status = 'open'
     if @ticket.save
       respond_to do |format|
