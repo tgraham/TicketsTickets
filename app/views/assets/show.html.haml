@@ -74,7 +74,23 @@
             %label 
               Password
             = @asset.user_password
-  
+  %fieldset
+    %legend Attachments
+    %table#pri_info.no-style.full{:style => ""}
+      %thead
+        %tr
+          %th
+            %b Attachment
+          %th
+            %b Action
+      %tbody
+        - @asset.uploads.each do |upload|
+          %tr
+            %td= link_to upload.attachment_filename, upload.attachment.url
+            %td
+              %label
+                = check_box_tag :remove_avatar
+                Remove avatar
 .column.width8.first.last
   = link_to edit_asset_path, :class => 'btn' do
     = content_tag :span,"&nbsp;", :class => 'icon icon-add'

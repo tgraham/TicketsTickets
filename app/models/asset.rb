@@ -36,6 +36,8 @@ class Asset
   
   slug :name
   
+  
+  
   def create_user
     User.find(self.created_by).full_name
   end

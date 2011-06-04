@@ -6,4 +6,3 @@ config/database.yml
 tmp/*
 db/*.sqlite3
 .DS_Store
-

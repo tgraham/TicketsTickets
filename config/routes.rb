@@ -49,4 +49,19 @@ TicketsTickets::Application.routes.draw do
   match '/ticket/:number' => 'tickets#show', :as => :show_ticket
   match '/ticket/:number/edit' => 'tickets#edit', :as => :edit_ticket
   
+  
+  # GridFS Routes
+  require File.join Rails.root, 'lib/grid_io'
+    Mongo::GridIO.send(:include, TicketsTickets::GridIO)
+    match "/gridfs/*path", :via => :get, :to => proc { |env|
+      gridfs_path = env["PATH_INFO"].gsub("/gridfs/", "")
+      begin
+        gridfs_file = Mongo::GridFileSystem.new(Mongoid.database).open(gridfs_path, 'r')
+        [ 200, { 'Content-Type' => gridfs_file.content_type, 'Content-Length' => gridfs_file.file_length.to_s }, gridfs_file ]
+      rescue
+        message = 'Grid file not found.'
+        [ 404, { 'Content-Type' => 'text/plain', 'Content-Length' => message.size.to_s }, message ]
+      end
+    }
+
 end

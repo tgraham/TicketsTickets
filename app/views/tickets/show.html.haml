@@ -22,6 +22,8 @@
   #info
     = simple_format(@ticket.description)
   %br/
+  - @ticket.uploads.each do |upload|
+    = upload.filename
   - if can? :update, Ticket
     = link_to 'Edit Ticket', edit_ticket_path, :class => 'btn'
   %h3 Replies

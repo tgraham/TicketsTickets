@@ -17,6 +17,7 @@ class Ticket
   
   belongs_to_related :user
   embeds_many :replies
+  has_many :uploads
   
   attr_accessible :number, :subject, :description, :priority, :status, :assigned_to
   

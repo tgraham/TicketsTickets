@@ -21,6 +21,10 @@
       %br/
       = f.select :priority, Ticket::PRIORITY
     %p
+      = f.label :attachment
+      %br/
+      = f.file_field :upload
+    %p
       = f.label :status
       %br/
       = f.select :status, Ticket::STATUS.collect! {|x| [x.humanize, x]}
