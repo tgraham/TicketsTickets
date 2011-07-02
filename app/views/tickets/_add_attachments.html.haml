@@ -1,0 +1,7 @@
+#info
+  %h2 Add Attachment
+  = form_for [@user, @ticket, Upload.new], html: { multipart: true } do |upload|
+    = upload.file_field :attachment
+    %br/
+    .column.width6.first
+      = upload.submit 'Submit Attachment', class: 'btn btn-green'

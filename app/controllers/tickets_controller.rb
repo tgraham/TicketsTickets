@@ -14,12 +14,12 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = @user.tickets.build
+    @ticket = Ticket.new
   end
   
   def create
-    @ticket = @user.tickets.build(params[:ticket])
-    @ticket.status = 'open'
+    @ticket = Ticket.new(params[:ticket])
+    @ticket.user_id = current_user._id
     if @ticket.save
       respond_to do |format|
         format.html { redirect_to dashboard_path, :notice => 'Ticket successfully created.' }
@@ -37,6 +37,7 @@ class TicketsController < ApplicationController
 
   def edit
     @ticket = @user.find_ticket(params[:number])
+    @ticket.uploads.build
   end
   
   def update

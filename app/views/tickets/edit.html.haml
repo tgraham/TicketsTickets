@@ -2,7 +2,7 @@
 %section.full
   %h2 Edit Ticket
   
-  = form_for @ticket do |f|
+  = form_for @ticket, html: { multipart: true } do |f|
     %p
       = f.label :number
       %br/
@@ -20,6 +20,8 @@
       = f.label :priority
       %br/
       = f.select :priority, Ticket::PRIORITY
+    %p
+      = f.file_field :attachment
     %p
       = f.label :status
       %br/

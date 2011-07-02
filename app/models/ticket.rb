@@ -2,11 +2,11 @@ class Ticket
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  field :number, :type => Integer
+  field :number, type: Integer
   field :subject
   field :description
   field :priority
-  field :status
+  field :status, default: 'open'
   field :assigned_to
   
   index :number
@@ -18,7 +18,9 @@ class Ticket
   belongs_to_related :user
   embeds_many :replies
   
-  attr_accessible :number, :subject, :description, :priority, :status, :assigned_to
+  has_many :uploads
+  
+  # attr_accessible :number, :subject, :description, :priority, :status, :assigned_to
   
   before_create :generate_ticket_number
   

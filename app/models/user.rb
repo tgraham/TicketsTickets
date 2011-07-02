@@ -24,6 +24,7 @@ class User
   references_many :tickets
   has_many :assets
   has_many :tasks
+  has_many :uploads
   belongs_to :company
   
   def find_ticket(number)

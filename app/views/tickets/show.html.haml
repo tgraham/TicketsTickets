@@ -22,7 +22,16 @@
   #info
     = simple_format(@ticket.description)
   %br/
-  = link_to 'Edit Ticket', edit_ticket_path, :class => 'btn'
+  = link_to '#add_attachments', :class => 'nyroModal btn btn-green' do
+    = content_tag :span, 'Add Attachments'
+  = link_to '#show_attachments', :class => 'nyroModal btn btn-blue' do
+    = content_tag :span, 'View Attachments'
+  = link_to 'Edit Ticket', edit_ticket_path, :class => 'btn btn-red'
+  #add_attachments.hidden
+    = render 'add_attachments'
+  #show_attachments.hidden
+    = render 'show_attachments'
+
   %h3 Replies
   #info
     - @ticket.replies.each do |r|

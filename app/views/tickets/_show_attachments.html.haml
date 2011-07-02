@@ -1,0 +1,6 @@
+%h2
+  Attachments
+- @ticket.uploads.each do |upload|
+  =link_to upload.attachment_filename, upload.attachment.url
+  = upload.user.full_name
+%br/

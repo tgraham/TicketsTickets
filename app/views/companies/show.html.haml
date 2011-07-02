@@ -69,7 +69,7 @@
       
 .column.width4
   #info.last
-    - unless @company.address.empty?
+    - unless @company.city.empty? && @company.state.empty? && @company.zip_code.empty?
       = gmaps4rails(@json)
       / = draw_map_of(Location.new(@company.name, @company.lat, @company.lng), 
       /     :marker => {:title => @company.name}, :static_map_html => {:width => '100%'})
