@@ -1,0 +1,39 @@
+= form_for [:admin, @mail_setting] do |form|
+  = form.error_messages
+  %p
+    = form.label :environment
+    = form.text_field :environment
+  %p
+    = form.label :enable_mail_delivery
+    = form.select :enable_mail_delivery, ["Yes", "No"]
+  %p
+    = form.label :mail_host
+    = form.text_field :mail_host
+  %p
+    = form.label :mail_domain
+    = form.text_field :mail_domain
+  %p
+    = form.label :mail_port
+    = form.text_field :mail_port, length: 4
+  %p
+    = form.label :mail_auth_type
+    = form.select :mail_auth_type, MailSetting::MAIL_AUTH
+  %p
+    = form.label :smtp_username
+    = form.text_field :smtp_username
+  %p
+    = form.label :smtp_password
+    = form.password_field :smtp_password
+  %p
+    = form.label :secure_connection_type
+    = form.select :secure_connection_type, MailSetting::SECURE_CONNECTION_TYPES
+  %p
+    = form.label :mails_from
+    = form.text_field :mails_from
+  %p
+    = form.label :mail_bcc
+    = form.text_field :mail_bcc
+
+  %br
+  %p
+    = form.submit

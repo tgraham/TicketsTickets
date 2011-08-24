@@ -34,6 +34,10 @@ TicketsTickets::Application.routes.draw do
     end
   end
   
+  namespace :admin do
+    resources :mail_settings
+  end
+  
   # Tickets routes
   resources :tickets
   
