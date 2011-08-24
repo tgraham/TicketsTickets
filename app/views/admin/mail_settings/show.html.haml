@@ -1,6 +1,9 @@
 %h1 Mail Settings
 %p
   %strong
+    = link_to 'Edit', [:edit, :admin, @mail_setting]
+%p
+  %strong
     Environment:
   = @mail_setting.environment
 %p
