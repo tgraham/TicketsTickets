@@ -1,0 +1,7 @@
+%h1 Current Mail Settings
+%br
+%p
+  = link_to 'New Mail Setting', new_admin_mail_setting_path
+%ul
+  - @mail_settings.each do |mail|
+    %li= link_to mail.name, [:admin, mail]

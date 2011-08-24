@@ -3,9 +3,13 @@
   %p
     = form.label :environment
     = form.text_field :environment
+    
+  %p
+    = form.label :name
+    = form.text_field :name
   %p
     = form.label :enable_mail_delivery
-    = form.select :enable_mail_delivery, ["Yes", "No"]
+    = form.select :enable_mail_delivery, { "Yes" => true, "No" => false }
   %p
     = form.label :mail_host
     = form.text_field :mail_host

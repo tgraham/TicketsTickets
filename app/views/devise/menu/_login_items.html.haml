@@ -1,4 +1,5 @@
 - if user_signed_in?
+  %li= link_to('App Settings', admin_mail_settings_path)
   %li{:class => controller_name == 'registrations' ? 'current' : ''}
     = link_to('Settings', edit_user_registration_path)
   %li

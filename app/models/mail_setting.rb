@@ -5,6 +5,7 @@ class MailSetting
   include Mongoid::Document
   field :environment, :type => String
   
+  field :name, type: String
   field :enable_mail_delivery, type: Boolean, default: false
   field :mail_host, type: String, default: 'localhost'
   field :mail_domain, type: String, default: 'localhost'
