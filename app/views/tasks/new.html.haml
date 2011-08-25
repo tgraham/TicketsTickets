@@ -1,26 +1,27 @@
 - title 'New Task'
+
 %section.full  
   = form_for @task do |f|
     %p
-      = f.label :name, :class => 'required'
+      = f.label :name, class: 'required'
       %br/
-      = f.text_field :name, :class => 'half'
+      = f.text_field :name, class: 'half'
     %p
-      = f.label :user_id, 'Assigned To', :class => 'required'
+      = f.label :user_id, 'Assigned To', class: 'required'
       %br/
       = f.select :user_id, User.all.map {|u| [u.full_name, u.id]}
     %p
-      = f.label :due_at, 'Due On', :class => 'required'
+      = f.label :due_at, 'Due On', class: 'required'
       %br/
-      = f.date_select :due_at, :order => [:month, :day, :year]
+      = f.date_select :due_at, order: [:month, :day, :year]
     %p
       = f.label :start_time
       %br/
-      = f.time_select :start_time, :include_blank => true
+      = f.time_select :start_time, include_blank: true
     %p
       = f.label :finish_time
       %br/
-      = f.time_select :finish_time, :include_blank => true
+      = f.time_select :finish_time, include_blank: true
     %p
       = f.label :start_mileage
       %br/
@@ -34,6 +35,6 @@
       = f.label :private
 
     %p
-      = f.submit "Submit", :class => 'btn'
-      = submit_tag "Cancel", :class => 'btn'
+      = f.submit "Submit", class: 'btn'
+      = submit_tag "Cancel", class: 'btn'
   %br/

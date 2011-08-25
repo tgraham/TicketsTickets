@@ -16,10 +16,10 @@ class Company
   field :phone_number
   field :web_address
   field :notes
-  # field :coordinates, :type => Array
-  field :latitude,        :type => Float
-  field :longitude,       :type => Float
-  field :gmaps,           :type => Boolean
+  # field :coordinates, type: Array
+  field :latitude,        type: Float
+  field :longitude,       type: Float
+  field :gmaps,           type: Boolean
   
   
   slug :name

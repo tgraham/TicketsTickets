@@ -9,7 +9,7 @@
 %section.column.width8.first
   %fieldset
     %legend Primary Information
-    %table#pri_info.no-style.full{:style => ""}
+    %table#pri_info.no-style.full{style: ""}
       %thead
         %tr
           %th
@@ -38,7 +38,7 @@
   %br/
   %fieldset
     %legend System Information
-    %table#pri_info.no-style.full{:style => ""}
+    %table#pri_info.no-style.full{style: ""}
       %thead
         %tr
           %th
@@ -76,9 +76,9 @@
             = @asset.user_password
   
 .column.width8.first.last
-  = link_to edit_asset_path, :class => 'btn' do
-    = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+  = link_to edit_asset_path, class: 'btn' do
+    = content_tag :span,"&nbsp;", class: 'icon icon-add'
     Edit Asset
-  = link_to :back, :class => 'btn' do
-    = content_tag :span,"&nbsp;", :class => 'icon icon-cancel'
+  = link_to :back, class: 'btn' do
+    = content_tag :span,"&nbsp;", class: 'icon icon-cancel'
     Go Back

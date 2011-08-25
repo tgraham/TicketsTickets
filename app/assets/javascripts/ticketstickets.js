@@ -1,17 +1,23 @@
 // Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
 
-$(document).ready(function(){
+$(function(){
 	
 	/* setup navigation, content boxes, etc... */
 	Administry.setup();
 	
 	/* progress bar animations - setting initial values */
   // alert($('td.ta-right.open_tickets').text());
-	Administry.progress("#progress1", $('td.ta-right.open_tickets').text() ,$('td.ta-right.total_tickets').text());
-	Administry.progress("#progress2", $('td.ta-right.customer_reply_tickets').text() ,$('td.ta-right.total_tickets').text());
-	Administry.progress("#progress3", $('td.ta-right.answered_tickets').text() ,$('td.ta-right.total_tickets').text());
-	Administry.progress("#progress4", $('td.ta-right.closed_tickets').text() ,$('td.ta-right.total_tickets').text());
+  
+  var total_tickets = $('td.ta-right.total_tickets').text();
+  var progress1 = $('td.ta-right.open_tickets').text();
+  var progress2 = $('td.ta-right.customer_reply_tickets').text();
+  var progress3 = $('td.ta-right.answered_tickets').text();
+  var progress4 = $('td.ta-right.closed_tickets').text();
+  
+	Administry.progress("#progress1", progress1, total_tickets);
+	Administry.progress("#progress2", progress2, total_tickets);
+	Administry.progress("#progress3", progress3, total_tickets);
+	Administry.progress("#progress4", progress4, total_tickets);
 
 	// validate signup form on keyup and submit
 	var validator = $("#loginform").validate({

@@ -23,9 +23,9 @@
         %br/
         = "Total Mileage: #{@task.mileage}"
   %br/
-  = link_to edit_task_path, :class => 'btn' do
-    = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+  = link_to edit_task_path, class: 'btn' do
+    = content_tag :span,"&nbsp;", class: 'icon icon-add'
     Edit Task
-  = link_to :back, :class => 'btn' do
-    = content_tag :span,"&nbsp;", :class => 'icon icon-cancel'
+  = link_to :back, class: 'btn' do
+    = content_tag :span,"&nbsp;", class: 'icon icon-cancel'
     Go Back

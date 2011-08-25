@@ -44,8 +44,8 @@
             %td.ta-right.closed_tickets
               = link_to @user.tickets.totals('closed'), tickets_status_path('closed')
       %span.dashboard_button
-        = link_to new_ticket_path, :class => 'btn' do
-          = content_tag :span, "&nbsp;", :class => 'icon icon-add'
+        = link_to new_ticket_path, class: 'btn' do
+          = content_tag :span, "&nbsp;", class: 'icon icon-add'
           Create Ticket
     .column.width3
       %h4
@@ -75,8 +75,8 @@
             %td.ta-right
               = link_to @user.assets.totals('Printer'), assets_classification_path('Printer')
       %span.dashboard_button
-        = link_to new_asset_path, :class => 'btn' do
-          = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+        = link_to new_asset_path, class: 'btn' do
+          = content_tag :span,"&nbsp;", class: 'icon icon-add'
           Create Asset
   .colgroup.leading
     .column.width3.first
@@ -121,7 +121,7 @@
       %hr/
       %p
         %b Sales this year
-      #placeholder{:style => "height:100px"}
+      #placeholder{style: "height:100px"}
   .clear  
 / End of Left column/section
 / Right column/section
@@ -131,15 +131,15 @@
       %h3 Your Account
     %dl.first
       %dt
-        %img{:alt => "", :height => "16", :src => "/images/key.png", :width => "16"}/
+        %img{alt: "", height: "16", src: "/images/key.png", width: "16"}/
       %dd
         = link_to @user.email + ' (' + @user.full_name + ')', edit_user_registration_path
       %dd.last
         =! @user.company.nil? ? @user.company.name : "You do not belong to a Company"
       %dt
-        %img{:alt => "", :height => "16", :src => "/images/help.png", :width => "16"}/
+        %img{alt: "", height: "16", src: "/images/help.png", width: "16"}/
       %dd
-        %a{:href => "#"} Support
+        %a{href: "#"} Support
       %dd.last Documentation and FAQ
   .content-box
     %header
@@ -148,10 +148,10 @@
       %dl
         %dt Maximize every interaction with a client
         %dd
-          %a{:href => "#"} Read more
+          %a{href: "#"} Read more
         %dt Diversification for Small Business Owners
         %dd
-          %a{:href => "#"} Read more
+          %a{href: "#"} Read more
 / End of Right column/section
 / End of Wrapper
 / End of Page content:w

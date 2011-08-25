@@ -1,17 +1,17 @@
-%li{:class => controller_name == 'dashboards' ? 'current' : ''}
+%li{class: controller_name == 'dashboards' ? 'current' : ''}
   =link_to 'Dashboard', dashboard_path
-%li{:class => controller_name == 'tickets' ? 'current' : ''}
+%li{class: controller_name == 'tickets' ? 'current' : ''}
   =link_to 'Tickets', tickets_path
   %ul
     %li= link_to 'Open', tickets_status_path('open')
     %li= link_to 'Customer Reply', tickets_status_path('customer_reply')
     %li= link_to 'Answered', tickets_status_path('answered')
     %li= link_to 'Closed', tickets_status_path('closed')
-%li{:class => controller_name == 'companies' ? 'current' : ''}
+%li{class: controller_name == 'companies' ? 'current' : ''}
   =link_to 'Companies', companies_path
-%li{:class => controller_name == 'users' ? 'current' : ''}
+%li{class: controller_name == 'users' ? 'current' : ''}
   =link_to 'Users', users_path
-%li{:class => controller_name == 'assets' ? 'current' : ''}
+%li{class: controller_name == 'assets' ? 'current' : ''}
   =link_to 'Assets', assets_path
   %ul
     %li= link_to 'Servers', assets_classification_path('Server')
@@ -19,5 +19,5 @@
     %li= link_to 'Laptops', assets_classification_path('Laptop')
     %li= link_to 'Cell Phones', assets_classification_path('Cell Phone')
     %li= link_to 'Printers', assets_classification_path('Printer')
-%li{:class => controller_name == 'tasks' ? 'current' : ''}
+%li{class: controller_name == 'tasks' ? 'current' : ''}
   =link_to 'Tasks', tasks_path

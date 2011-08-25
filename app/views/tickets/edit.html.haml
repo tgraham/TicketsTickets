@@ -1,4 +1,5 @@
 - title 'Edit Ticket'
+
 %section.full
   %h2 Edit Ticket
   
@@ -7,15 +8,15 @@
       = f.label :number
       %br/
       = @ticket.number
-      = f.text_field :number, :hidden => true
+      = f.hidden_field :number
     %p
-      = f.label :subject, 'Subject', :class => 'required'
+      = f.label :subject, 'Subject', class: 'required'
       %br/
-      = f.text_field :subject, :class => 'full'
+      = f.text_field :subject, class: 'full'
     %p
-      = f.label :description, 'Description', :class => 'required'
+      = f.label :description, 'Description', class: 'required'
       %br/
-      = f.text_area :description, :class => 'medium full'
+      = f.text_area :description, class: 'medium full'
     %p
       = f.label :priority
       %br/
@@ -29,8 +30,8 @@
     %p
       = f.label :assigned_to, 'Assign Tech'
       %br/
-      = f.collection_select :assigned_to, User.all, :id, :full_name, :include_blank => true
+      = f.collection_select :assigned_to, User.all, :id, :full_name, include_blank: true
     %p
-      = f.submit "Submit", :class => 'btn'
-      = submit_tag "Cancel", :class => 'btn'
+      = f.submit "Submit", class: 'btn'
+      = submit_tag "Cancel", class: 'btn'
   %br/

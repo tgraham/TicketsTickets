@@ -45,7 +45,7 @@ class TicketsController < ApplicationController
     if @ticket.update_attributes(params[:ticket])
       redirect_to show_ticket_path(@ticket.number), notice: "Ticket #{@ticket.number} has been updated." and return
     else
-      redirect_to :back, notice:"Something went wrong, try again."
+      redirect_to :back, notice: "Something went wrong, try again."
     end
   end
 end

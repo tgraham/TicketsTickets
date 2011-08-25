@@ -2,19 +2,19 @@
 %section.full
   = form_for @ticket, html: { multipart: true } do |f|
     %p
-      = f.label :subject, 'Subject', :class => 'required'
+      = f.label :subject, 'Subject', class: 'required'
       %br/
-      = f.text_field :subject, :class => 'full'
+      = f.text_field :subject, class: 'full'
     %p
-      = f.label :description, 'Description', :class => 'required'
+      = f.label :description, 'Description', class: 'required'
       %br/
-      = f.text_area :description, :class => 'medium full'
+      = f.text_area :description, class: 'medium full'
     %p
       = f.label :priority
       %br/
       = f.select :priority, Ticket::PRIORITY
       %br/
     %p
-      = f.submit "Submit", :class => 'btn'
-      = submit_tag "Cancel", :class => 'btn'
+      = f.submit "Submit", class: 'btn'
+      = submit_tag "Cancel", class: 'btn'
   %br/

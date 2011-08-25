@@ -17,11 +17,11 @@
         %td= company.state
         %td= company.phone_number
         %td= link_to company.web_address, company.web_address
-        %td= link_to image_tag('/images/delete.png'), company, :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
+        %td= link_to image_tag('/images/delete.png'), company, confirm: 'Are you sure?', method: :delete, class: 'delete'
 
 #info.last
   %span.dashboard_button
-    = link_to new_company_path, :class => 'btn' do
-      = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+    = link_to new_company_path, class: 'btn' do
+      = content_tag :span,"&nbsp;", class: 'icon icon-add'
       Create Company
   

@@ -3,7 +3,7 @@ class UploadsController < ApplicationController
   
   
   def new
-    @upload = Upload.new(:ticket_id => params[:ticket_id])
+    @upload = Upload.new(:ticket_id: params[:ticket_id])
   end
   
   def create

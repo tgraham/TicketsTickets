@@ -1,12 +1,12 @@
 = form_for @company do |f|
   %p
-    = f.label :name, :class => 'required'
+    = f.label :name, class: 'required'
     %br/
-    = f.text_field :name, :class => 'half'
+    = f.text_field :name, class: 'half'
   %p
     = f.label :address
     %br/
-    = f.text_field :address, :class => 'half'
+    = f.text_field :address, class: 'half'
   %p
     = f.label :city
     %br/
@@ -14,7 +14,7 @@
   %p
     = f.label :state
     %br/
-    = f.select :state, State::NAMES, :include_blank => true
+    = f.select :state, State::NAMES, include_blank: true
   %p
     = f.label :zip_code
     %br/
@@ -22,7 +22,7 @@
   %p
     = f.label :country
     %br/
-    = f.select :country, Country::NAMES, :include_blank => true
+    = f.select :country, Country::NAMES, include_blank: true
   %p
     = f.label :phone_number
     %br/
@@ -30,10 +30,10 @@
   %p
     = f.label :web_address
     %br/
-    = f.text_field :web_address, :class => 'half'
+    = f.text_field :web_address, class: 'half'
     
   %p
-    = f.submit :class => 'btn'
-    = submit_tag "Cancel", :class => 'btn' do
-      = content_tag :span,"&nbsp;", :class => 'icon icon-cancel'
+    = f.submit class: 'btn'
+    = submit_tag "Cancel", class: 'btn' do
+      = content_tag :span,"&nbsp;", class: 'icon icon-cancel'
 %br/

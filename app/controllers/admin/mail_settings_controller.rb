@@ -3,6 +3,7 @@ class Admin::MailSettingsController < ApplicationController
   def index
     @mail_settings = MailSetting.all
   end
+  
   def new
     @mail_setting = MailSetting.new
   end
@@ -12,7 +13,7 @@ class Admin::MailSettingsController < ApplicationController
     if @mail_setting.save
       redirect_to [:admin, @mail_setting], notice: "Your Mail Settings have been created."
     else
-      redirect_to :back
+      render :new, notice: "Something went wrong."
     end
   end
   

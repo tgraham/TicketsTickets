@@ -22,11 +22,11 @@
   #info
     = simple_format(@ticket.description)
   %br/
-  = link_to '#add_attachments', :class => 'nyroModal btn btn-green' do
+  = link_to '#add_attachments', class: 'nyroModal btn btn-green' do
     = content_tag :span, 'Add Attachments'
-  = link_to '#show_attachments', :class => 'nyroModal btn btn-blue' do
+  = link_to '#show_attachments', class: 'nyroModal btn btn-blue' do
     = content_tag :span, 'View Attachments'
-  = link_to 'Edit Ticket', edit_ticket_path, :class => 'btn btn-red'
+  = link_to 'Edit Ticket', edit_ticket_path, class: 'btn btn-red'
   #add_attachments.hidden
     = render 'add_attachments'
   #show_attachments.hidden
@@ -43,17 +43,17 @@
             = r.created_at.to_s(:long)
           %span.relativetime
             = "(#{distance_of_time_in_words(r.created_at, Time.now)} ago)"
-          #description{:style => "max-width:900px;"}
+          #description{style: "max-width:900px;"}
             %p= simple_format(r.comment)
   %hr/
 .column.width8.last
   %br/
   #info
-    = form_for(Reply.new, :url => user_ticket_replies_path(@user, @ticket)) do |f|
+    = form_for(Reply.new, url: user_ticket_replies_path(@user, @ticket)) do |f|
       %p
         = f.label :comment
         %br/
-        = f.text_area :comment, :class => 'medium full'
+        = f.text_area :comment, class: 'medium full'
         %br/
       %span.message
-      %p= f.submit 'Submit', :class => 'btn'
+      %p= f.submit 'Submit', class: 'btn'

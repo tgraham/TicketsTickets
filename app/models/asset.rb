@@ -47,7 +47,7 @@ class Asset
   
   class << self
     def totals(classification)
-      where(:classification => classification).count
+      where(classification: classification).count
     end
   end
 end

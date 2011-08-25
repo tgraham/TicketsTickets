@@ -3,27 +3,27 @@
     %p
       = f.label :company
       %br/
-      = f.select :company_id, Company.all.map {|c| [c.name, c.id]}, :include_blank => true
+      = f.select :company_id, Company.all.map {|c| [c.name, c.id]}, include_blank: true
   %p
     = f.label :user
     %br/
-    = f.select :user_id, User.all.map {|u| [u.full_name, u.id]}, :include_blank => true
+    = f.select :user_id, User.all.map {|u| [u.full_name, u.id]}, include_blank: true
   %p
-    = f.label :name, :class => 'required'
+    = f.label :name, class: 'required'
     %br/
-    = f.text_field :name, :class => 'half'
+    = f.text_field :name, class: 'half'
   %p
-    = f.label :description, :class => 'required'
+    = f.label :description, class: 'required'
     %br/
-    = f.text_area :description, :class => 'small full'
+    = f.text_area :description, class: 'small full'
   %p
     = f.label :os
     %br/
-    = f.text_field :os, :class => 'half'
+    = f.text_field :os, class: 'half'
   %p
-    = f.label :location, :class => 'required'
+    = f.label :location, class: 'required'
     %br/
-    = f.text_field :location, :class => 'full'
+    = f.text_field :location, class: 'full'
   %p
     = f.label :classification
     %br/
@@ -31,35 +31,35 @@
   %p
     = f.label :peripherals
     %br/
-    = f.text_field :peripherals, :class => 'full'
+    = f.text_field :peripherals, class: 'full'
   %p
     = f.label :anti_virus
     %br/
-    = f.text_field :anti_virus, :class => 'half'
+    = f.text_field :anti_virus, class: 'half'
   %p
     = f.label :software
     %br/
-    = f.text_area :software, :class => 'small full'
+    = f.text_area :software, class: 'small full'
   %p
     = f.label :firmware
     %br/
-    = f.text_field :firmware, :class => 'half'
+    = f.text_field :firmware, class: 'half'
   %p
     = f.label :serial_number
     %br/
-    = f.text_field :serial_number, :class => 'half'
+    = f.text_field :serial_number, class: 'half'
   %p
     = f.label :asset_tag
     %br/
-    = f.text_field :asset_tag, :class => 'half'
+    = f.text_field :asset_tag, class: 'half'
   %p
     = f.label :part_number
     %br/
-    = f.text_field :part_number, :class => 'half'
+    = f.text_field :part_number, class: 'half'
   %p
     = f.label :warranty
     %br/
-    = f.text_field :warranty, :class => 'half'
+    = f.text_field :warranty, class: 'half'
   %p
     = f.label :ip
     %br/
@@ -74,6 +74,6 @@
     = f.text_field :user_password
 
   %p
-    = f.submit "Submit", :class => 'btn'
-    = submit_tag "Cancel", :class => 'btn'
+    = f.submit "Submit", class: 'btn'
+    = submit_tag "Cancel", class: 'btn'
 %br/

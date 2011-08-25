@@ -37,7 +37,7 @@
           %span= link_to user.full_name, user
   
   #add_users.hidden
-    = form_tag company_users_path, :method => :put do
+    = form_tag company_users_path, method: :put do
       = hidden_field_tag :company, @company.id
       - for user in @users
         %strong
@@ -46,30 +46,28 @@
           %br/
           %br/
       - if @users.count > 0
-        = submit_tag 'Add to Company', :class => 'btn'
+        = submit_tag 'Add to Company', class: 'btn'
       - else
         %h3 Sorry, no more users to add.
     
   .column.width4.first
     #info
       .column.width2.first
-        = link_to edit_company_path, :class => 'btn' do
-          = content_tag :span,"&nbsp;", :class => 'icon icon-add'
+        = link_to edit_company_path, class: 'btn' do
+          = content_tag :span,"&nbsp;", class: 'icon icon-add'
           Edit Company
       .column.width2
-        = link_to 'Add Users', '#add_users', :class => 'btn nyroModal'
+        = link_to 'Add Users', '#add_users', class: 'btn nyroModal'
     #info.last
       %br/
       %br/
       %h4 Add Notes
       = form_for @company do |f|
-        = f.text_area :notes, :class => 'medium full'
+        = f.text_area :notes, class: 'medium full'
         %br/
-        = f.submit 'Submit', :class => 'btn'
+        = f.submit 'Submit', class: 'btn'
       
 .column.width4
   #info.last
     - unless @company.city.empty? && @company.state.empty? && @company.zip_code.empty?
       = gmaps4rails(@json)
-      / = draw_map_of(Location.new(@company.name, @company.lat, @company.lng), 
-      /     :marker => {:title => @company.name}, :static_map_html => {:width => '100%'})

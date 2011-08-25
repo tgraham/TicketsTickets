@@ -1,0 +1,17 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery.ui.core.min
+//= require jquery.ui.widget.min
+//= require jquery.ui.tabs.min
+//= require jquery.tipTip.min
+//= require jquery.superfish.min
+//= require flot/excanvas.min
+//= require flot/jquery.flot.min
+//= require jquery.supersubs.min
+//= require jquery.validate_pack
+//= require jquery.nyroModal.pack
+//= require administry
+//= require gmaps4rails
+//= require gmaps4rails.googlemaps
+//= require swfobject
+//= require ticketstickets

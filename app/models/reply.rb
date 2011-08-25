@@ -5,10 +5,10 @@ class Reply
   field :user_email
   field :comment
   
-  validates :comment, :presence => true
+  validates :comment, presence: true
   
   referenced_in :user
-  embedded_in :ticket, :inverse_of => :replies
+  embedded_in :ticket, inverse_of: :replies
   
   after_create :update_ticket
   
@@ -19,6 +19,6 @@ class Reply
     end
     
     def update_ticket
-      ticket.update_attributes(:status => ticket_status)
+      ticket.update_attributes(status: ticket_status)
     end
 end

@@ -1,7 +1,7 @@
-%h1 Current Mail Settings
-%br
+- title 'Mail Settings'
+
 %p
-  = link_to 'New Mail Setting', new_admin_mail_setting_path
+  = link_to 'Add New Mail Configuration', new_admin_mail_setting_path, class: 'btn btn-blue'
 %ul
   - @mail_settings.each do |mail|
     %li= link_to mail.name, [:admin, mail]

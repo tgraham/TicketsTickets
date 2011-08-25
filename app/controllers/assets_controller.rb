@@ -1,13 +1,11 @@
 class AssetsController < ApplicationController
-  respond_to :html
-  
   before_filter :authenticate_user!
   before_filter :set_current_user
-  before_filter :check_for_cancel, :only => [:create, :update]
+  before_filter :check_for_cancel, only: [:create, :update]
   
   def index
     if params[:classification]
-      @assets = Asset.where(:classification => params[:classification])
+      @assets = Asset.where(classification: params[:classification])
       @classification = params[:classification].humanize
     else
       @assets = Asset.all
@@ -15,7 +13,7 @@ class AssetsController < ApplicationController
   end
   
   def show
-    @asset = Asset.where(:slug => params[:id]).first
+    @asset = Asset.where(slug: params[:id]).first
   end
   
   def new
@@ -26,32 +24,32 @@ class AssetsController < ApplicationController
     @asset = Asset.new(params[:asset])
     @asset.created_by = current_user.id
     if @asset.save
-      redirect_to assets_path, :notice => 'Asset created.'
+      redirect_to assets_path, notice: 'Asset created.'
     else
       render :new
     end
   end
   
   def edit
-    @asset = Asset.where(:slug => params[:id]).first
+    @asset = Asset.where(slug: params[:id]).first
   end
   
   def update
-    @asset = Asset.where(:slug => params[:id]).first
+    @asset = Asset.where(slug: params[:id]).first
     @asset.updated_by = current_user.id
     if @asset.update_attributes(params[:asset])
-      redirect_to assets_path, :notice => "#{@asset.name} has been updated." and return
+      redirect_to assets_path, notice: "#{@asset.name} has been updated." and return
     else
-      redirect_to :back, :notice => "Something went wrong, try again."
+      redirect_to :back, notice: "Something went wrong, try again."
     end
   end
   
   def destroy
-    @asset = Asset.where(:slug => params[:id]).first
+    @asset = Asset.where(slug: params[:id]).first
     if @asset.destroy
-      redirect_to assets_path, :notice => "#{@asset.name} has been removed."
+      redirect_to assets_path, notice: "#{@asset.name} has been removed."
     else
-      redirect_to :back, :notice => "Something went wrong, try again."
+      redirect_to :back, notice: "Something went wrong, try again."
     end
   end
   
@@ -59,7 +57,7 @@ class AssetsController < ApplicationController
 
   def check_for_cancel
     if params[:commit] == "Cancel"
-      redirect_to assets_path, :notice => "You have canceled your request."
+      redirect_to assets_path, notice: "You have canceled your request."
     end
   end
 

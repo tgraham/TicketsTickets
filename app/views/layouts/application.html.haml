@@ -1,35 +1,31 @@
 !!!
-%html{:lang => "en"}
+%html{lang: "en"}
   %head
-    %meta{:charset => "utf-8"}/
+    %meta{charset: "utf-8"}/
     %title 
       TicketsTickets
       = "- " + yield(:title) unless !:title
-    %meta{:content => "TicketsTickets", :name => "description"}/
-    %meta{:content => "Tickets", :name => "keywords"}/
+    %meta{content: "TicketsTickets", name: "description"}/
+    %meta{content: "Tickets", name: "keywords"}/
     / Favicons
-    %link{:href => "/images/favicons/favicon.png", :rel => "shortcut icon", :type => "image/png"}/
-    %link{:href => "/images/favicons/favicon.png", :rel => "icon", :type => "image/png"}/
-    %link{:href => "/images/favicons/apple.png", :rel => "apple-touch-icon"}/
+    %link{href: "/images/favicons/favicon.png", rel: "shortcut icon", type: "image/png"}/
+    %link{href: "/images/favicons/favicon.png", rel: "icon", type: "image/png"}/
+    %link{href: "/images/favicons/apple.png", rel: "apple-touch-icon"}/
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+    
     / Gmaps4rails
     = yield :head
     
-    / Stylesheets
-    = stylesheet_link_tag 'application', 'custom'
-
-    / jQuery with plugins
-    = javascript_include_tag 'jquery.min', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.tabs.min', 'jquery.tipTip.min'
-    = javascript_include_tag 'jquery.superfish.min', 'flot/jquery.flot.min', 'jquery.supersubs.min', 'jquery.validate_pack'
-    = javascript_include_tag 'jquery.nyroModal.pack','swfobject', 'rails', 'application'
-    
     / Internet Explorer Fixes
     /[if IE]
-      <link rel="stylesheet" type="text/css" media="all" href="/stylesheets/ie.css"/>
-      <script src="/javascripts/html5.js"></script>
+      = stylesheet_link_tag 'ie'
+      = javascript_include_tag 'html5'
     / Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js
     /[if lt IE 8]
-      <script src="/javascripts/IE8.js"></script>
-    = csrf_meta_tag
+      = javascript_include_tag 'IE8'
+
   %body
     / Header
     %header#top
@@ -41,23 +37,23 @@
         / Top navigation
         - if current_user
           #topnav
-            %a{:href => "#"}
-              = image_tag avatar_url(current_user), :class => 'avatar'
+            %a{href: "#"}
+              = image_tag avatar_url(current_user), class: 'avatar'
             Logged in as
             %b
               = current_user.full_name
             %br/
             %small
               You have
-              %a.high{:href => "#"}
-                %b 1
+              %a.high{href: "#"}
+                %b 0
                 new message!
         / End of Top navigation
         
         %nav#menu
           - if current_user
             %ul.sf-menu
-              = render 'layouts/shared/menu_items'
+              = render 'menu_items'
         %nav.right
           %ul.sf-menu
             = render 'devise/menu/login_items'
@@ -73,15 +69,15 @@
         .wrapper
           %h1= yield(:title) unless !:title
           / Quick search box
-          %form{:action => "", :method => "get"}
-            %input#q{:name => "q", :type => "text"}/
+          %form{action: "", method: :get}
+            %input#q{name: "q", type: "text"}/
       / End of Page title
 
     / Page content
     #page
       .wrapper-flash
         - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}", :class => 'box box-info'
+          = content_tag :div, msg, id: "flash_#{name}", class: 'box box-info'
       / Wrapper
       - if !current_user
         .wrapper-login
@@ -97,20 +93,12 @@
         %p
           Copyright © 2010
           %b
-            %a{:href => "http://themeforest.net/user/zoranjuric", :title => "Visit my profile page @ThemeForest"} Zoran Juric
+            %a{href: "http://themeforest.net/user/zoranjuric", title: "Visit my profile page @ThemeForest"} Zoran Juric
           | Icons by
-          %a{:href => "http://www.famfamfam.com/"} FAMFAMFAM
+          %a{href: "http://www.famfamfam.com/"} FAMFAMFAM
     / End of Page footer
     %footer#animated
-      %ul
-        %li=link_to 'Dashboard', dashboard_path
-        %li=link_to 'Tickets', tickets_path
-        %li=link_to 'Companies', companies_path
-        %li=link_to 'Users', users_path
-        %li=link_to 'Assets', assets_path
-        %li=link_to 'Tasks', tasks_path
-    / User interface javascript load
-    = javascript_include_tag 'administry'
+      = render 'bottom_menu'
     
     / Gmaps4rails
     = yield :scripts

@@ -2,18 +2,18 @@ class Ticket
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  field :number, type: Integer
+  field :number,        type: Integer
   field :subject
   field :description
   field :priority
-  field :status, default: 'open'
+  field :status,                            default: 'open'
   field :assigned_to
   
   index :number
   index :status
   index :subject
   
-  validates :subject, :description, :presence => true
+  validates :subject, :description, presence: true
   
   belongs_to_related :user
   embeds_many :replies
@@ -28,12 +28,12 @@ class Ticket
   STATUS = %w[open answered customer_reply on_hold closed]
   
   def tech
-    User.where(:_id => self.assigned_to).first.full_name
+    User.where(_id: self.assigned_to).first.full_name
   end
   
   class << self
     def totals(status)
-      where(:status => status).count
+      where(status: status).count
     end
   end
   
@@ -43,7 +43,7 @@ class Ticket
     ticket = Object.new
     while ticket
       random = rand(999999)
-      ticket = Ticket.where(:number => random).first
+      ticket = Ticket.where(number: random).first
     end
     self.number = random
   end

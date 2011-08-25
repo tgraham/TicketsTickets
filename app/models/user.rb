@@ -13,7 +13,7 @@ class User
   field :username
   field :company_id
 
-  slug :full_name, :as => :name
+  slug :full_name, as: :name
   
   index :slug
   
@@ -28,6 +28,6 @@ class User
   belongs_to :company
   
   def find_ticket(number)
-    tickets.where(:number => number).first
+    tickets.where(number: number).first
   end
 end

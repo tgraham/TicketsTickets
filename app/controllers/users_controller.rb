@@ -17,9 +17,9 @@ class UsersController < ApplicationController
         user.company = @company
         user.save!
       end
-      redirect_to :back, :notice => 'Users added.'
+      redirect_to :back, notice: 'Users added.'
     else
-      redirect_to :back, :notice => 'No users selected.'
+      redirect_to :back, notice: 'No users selected.'
     end
   end
 end

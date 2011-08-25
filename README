@@ -7,7 +7,7 @@ Rails 3 Ticketing system
 gems:
 =====
 rails
-mysql2 0.2.7  ## 0.3.x is only compatible with Rails 3.1
+mongoid
 jquery-rails
 devise
 kaminari

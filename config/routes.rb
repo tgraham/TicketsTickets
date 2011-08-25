@@ -1,6 +1,6 @@
 TicketsTickets::Application.routes.draw do
 
-  root :to => "static#index"
+  root to: "static#index"
   
   devise_for :users do
     get '/login' => 'devise/sessions#new'
@@ -17,7 +17,7 @@ TicketsTickets::Application.routes.draw do
   # Assets routes
   resources :assets
   
-  match '/assets/classification/:classification' => 'assets#index', :as => :assets_classification
+  match '/assets/classification/:classification' => 'assets#index', as: :assets_classification
   
   # Users routes
   resources :users do
@@ -25,12 +25,12 @@ TicketsTickets::Application.routes.draw do
       resources :uploads
       resources :replies do
         collection do
-          post :create, :action => :create_for_ticket
+          post :create, action: :create_for_ticket
         end
       end
     end
     collection do
-      put :company, :action => :add_to_company
+      put :company, action: :add_to_company
     end
   end
   
@@ -41,8 +41,8 @@ TicketsTickets::Application.routes.draw do
   # Tickets routes
   resources :tickets
   
-  match '/tickets/status/:status' => 'tickets#index', :as => :tickets_status
-  match '/ticket/:number' => 'tickets#show', :as => :show_ticket
-  match '/ticket/:number/edit' => 'tickets#edit', :as => :edit_ticket
+  match '/tickets/status/:status' => 'tickets#index', as: :tickets_status
+  match '/ticket/:number' => 'tickets#show', as: :show_ticket
+  match '/ticket/:number/edit' => 'tickets#edit', as: :edit_ticket
   
 end

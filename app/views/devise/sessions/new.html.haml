@@ -3,18 +3,18 @@
 %section.full
   %h2 Login
   .box.box-info Login using your email address and password
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name), :id => 'loginform') do |f|
+  = form_for(resource, as: resource_name, url: session_path(resource_name), id: 'loginform') do |f|
     %p 
-      = f.label :email, :class => 'required'
+      = f.label :email, class: 'required'
       %br/
-      = f.text_field :email, :class => 'full'
+      = f.text_field :email, class: 'full'
     %p
-      = f.label :password, :class => 'required'
+      = f.label :password, class: 'required'
       %br/
-      = f.password_field :password, :class => 'full'
+      = f.password_field :password, class: 'full'
     - if devise_mapping.rememberable?
       %p
-        = f.check_box :remember_me, :id => 'remember'
-        = f.label :remember_me, :class => 'choice'
-    %p= f.submit "Login", :class => 'btn btn-green big' 
-    = render :partial => "devise/shared/links"
+        = f.check_box :remember_me, id: 'remember'
+        = f.label :remember_me, class: 'choice'
+    %p= f.submit "Login", class: 'btn btn-green big' 
+    = render partial: "devise/shared/links"
